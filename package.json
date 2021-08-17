@@ -1,0 +1,29 @@
+{
+  "name": "@huxy/use",
+  "version": "0.8.0",
+  "title": "useHooks",
+  "feature": "0.0.1",
+  "hooks": "0.0.1",
+  "description": "react use hooks",
+  "homepage": "https://github.com/ahyiru/use",
+  "keywords": [
+    "components",
+    "ihuxy",
+    "use",
+    "hooks"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahyiru/use"
+  },
+  "license": "MIT",
+  "devDependencies": {},
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "yiru"
+}
