@@ -4,42 +4,47 @@
 
 ### useSearch使用示例
 
-	const List=()=>{
-	  const result=fetchList.read().data;
-	  const [data,setData]=useSearch(result);
-	  const [keywords,setKeywords]=useState('');
-	  const table=data?data:result;
-	  return <div>
-	    <div style={{padding:'20px 10px'}}>
-	      <div style={{width:'200px',display:'inline-block',marginRight:'15px'}}><input className="input" onChange={e=>setKeywords(e.target.value)} value={keywords} placeholder="请输入昵称..." /></div>
-	      <button className="ybtn ybtn-info" onClick={()=>setData(result,keywords)}>搜索</button>
-	    </div>
-	    {
-	      result?.length?
-	        <table className="ytable">
-	          <thead>
-	            <tr>
-	              {
-	                columns.map(v=><th key={v.key}>{v.text}</th>)
-	              }
-	            </tr>
-	          </thead>
-	          <tbody>
-	            {
-	              table.map(v=><tr key={v.id}>
-	                {columns.map(sv=><td key={`${v.id}-${sv.key}`}>{v[sv.key]||<Link to={`/user/${v.id}`}>{sv.text}</Link>}</td>)}
-	              </tr>)
-	            }
-	          </tbody>
-	        </table>:
-	        <div>empty</div>
-	    }
-	  </div>;
-	};
+```javascript
+const List=()=>{
+  const result=fetchList.read().data;
+  const [data,setData]=useSearch(result);
+  const [keywords,setKeywords]=useState('');
+  const table=data?data:result;
+  return <div>
+    <div style={{padding:'20px 10px'}}>
+      <div style={{width:'200px',display:'inline-block',marginRight:'15px'}}><input className="input" onChange={e=>setKeywords(e.target.value)} value={keywords} placeholder="请输入昵称..." /></div>
+      <button className="ybtn ybtn-info" onClick={()=>setData(result,keywords)}>搜索</button>
+    </div>
+    {
+      result?.length?
+        <table className="ytable">
+          <thead>
+            <tr>
+              {
+                columns.map(v=><th key={v.key}>{v.text}</th>)
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              table.map(v=><tr key={v.id}>
+                {columns.map(sv=><td key={`${v.id}-${sv.key}`}>{v[sv.key]||<Link to={`/user/${v.id}`}>{sv.text}</Link>}</td>)}
+              </tr>)
+            }
+          </tbody>
+        </table>:
+        <div>empty</div>
+    }
+  </div>;
+};
 
+```
 #### 使用说明
 
-	const [list,setList]= useSearch;
+```javascript
+const [list,setList]= useSearch;
+
+```
 
 - list：过滤后的新数据
 - setList：过滤数据
@@ -65,32 +70,19 @@ arr.filter();
 
 如果子级有匹配到，则返回其所有父节点。
 
-	getMatched=fn=>(arr,childKey='children')=>{ ... }
+```javascript
+getMatched=fn=>(arr,childKey='children')=>{ ... }
+
+```
 
 #### 使用
 
 通过函数组合，得到filterList函数。
 
-	filterList=(data,keyword,fields='name',childKey='children')=>getMatched((list,matchedItem)=>unique([...filter(list,keyword,fields),...matchedItem]))(data,childKey);
+```javascript
+const filterList=(data,keyword,str2Dom,fields='name',idKey='id',childKey='children',exact=false)=>getMatched((list,matchedItem)=>unique([...filter(list,keyword,fields,exact,str2Dom),...matchedItem],idKey))(data,childKey);
 
-	const setList=useCallback((...args)=>{
-	  const newList=filterList(...args);
-	  setState(newList);
-	},[]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 
 

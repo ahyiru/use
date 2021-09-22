@@ -1,5 +1,10 @@
 ## 常用Hooks
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ahyiru/use/blob/develop/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@huxy/use.svg)](https://www.npmjs.com/package/@huxy/use)
+[![Build Status](https://api.travis-ci.com/ahyiru/use.svg?branch=master)](https://app.travis-ci.com/github/ahyiru/use)
+[![](https://img.shields.io/badge/blog-ihuxy-blue.svg)](http://ihuxy.com/)
+
 <!--![useClickAway](./useClickAway.png)-->
 
 
