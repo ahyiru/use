@@ -13,5 +13,6 @@ export {default as useStore} from './useStore';
 export {default as useTime} from './useTime';
 export {default as useUpdate} from './useUpdate';
 export {default as useUpdateEffect} from './useUpdateEffect';
-export {useWinResize,useEleResize} from './useViewSize';
+export {default as useWinResize} from './useWinResize';
+export {default as useEleResize} from './useEleResize';
 
