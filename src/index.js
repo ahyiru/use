@@ -3,6 +3,7 @@ export {default as useCancelablePromise} from './useCancelablePromise';
 export {default as useClickAway} from './useClickAway';
 export {default as useDebounce} from './useDebounce';
 export {default as useDelayState} from './useDelayState';
+export {default as useEvent} from './useEvent';
 export {default as useFirstMounted} from './useFirstMounted';
 export {default as usePrevious} from './usePrevious';
 export {default as useRaf} from './useRaf';
