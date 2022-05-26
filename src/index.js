@@ -10,6 +10,7 @@ export {default as useRaf} from './useRaf';
 export {default as useScroll} from './useScroll';
 export {default as useSearch} from './useSearch';
 export {default as useStateFromProps} from './useStateFromProps';
+export {default as createContainer} from './useStore/createContainer';
 export {default as useStore} from './useStore';
 export {default as useTime} from './useTime';
 export {default as useUpdate} from './useUpdate';

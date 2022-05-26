@@ -88,6 +88,21 @@ __webpack_require__.d(__webpack_exports__, {
   "useStore": function() { return /* binding */ useStore; }
 });
 
+;// CONCATENATED MODULE: ../../node_modules/@babel/runtime/helpers/esm/defineProperty.js
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 
@@ -193,6 +208,12 @@ const emitter = () => {
 ;// CONCATENATED MODULE: ../huxy/utils/createStore.js
 
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
 
 
 const createStore = () => {
@@ -205,7 +226,9 @@ const createStore = () => {
 
   const getState = key => utils_clone(store[key]);
 
-  const setState = state => {
+  const setState = function (state) {
+    let init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
     if (typeof state === 'function') {
       state = state(utils_clone(store));
     }
@@ -216,10 +239,12 @@ const createStore = () => {
 
     const newState = utils_clone(state);
     Object.keys(newState).map(key => {
-      emit(key, newState[key]);
-      store[key] = newState[key];
-    });
-    return off;
+      const oldItem = store[key];
+      const newItem = newState[key];
+      const item = utils_isObject(newItem) && utils_isObject(oldItem) ? _objectSpread(_objectSpread({}, oldItem), newItem) : newItem;
+      !init && emit(key, item);
+      store[key] = item;
+    }); // return off;
   };
 
   const subscribe = (key, cb) => {
@@ -257,9 +282,21 @@ var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_re
 
 
 const createContainer = store => (name, initState) => {
-  var _store$getState;
+  const [state, setState] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)(() => {
+    const prevState = store == null ? void 0 : store.getState(name);
 
-  const [state, setState] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)((_store$getState = store == null ? void 0 : store.getState(name)) != null ? _store$getState : initState);
+    if (prevState !== undefined) {
+      return prevState;
+    }
+
+    if (initState !== undefined) {
+      store == null ? void 0 : store.setState({
+        [name]: initState
+      }, true);
+    }
+
+    return initState;
+  });
   const update = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(result => store == null ? void 0 : store.setState({
     [name]: typeof result === 'function' ? result(store == null ? void 0 : store.getState(name)) : result
   }), []);
