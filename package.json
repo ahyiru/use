@@ -1,16 +1,15 @@
 {
   "name": "@huxy/use",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "title": "useHooks",
   "feature": "0.0.1",
   "hooks": "0.0.1",
-  "description": "react use hooks",
+  "description": "react hooks",
   "homepage": "https://github.com/ahyiru/use",
   "keywords": [
-    "components",
-    "ihuxy",
-    "use",
-    "hooks"
+    "react",
+    "hooks",
+    "use"
   ],
   "sideEffects": false,
   "main": "./lib/index.js",

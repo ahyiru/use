@@ -7,12 +7,12 @@
 		var a = typeof exports === 'object' ? factory(require("react")) : factory(root["React"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE__899__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__3899__) {
 return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 57:
+/***/ 8057:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 
@@ -22,7 +22,7 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
-var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
+var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(3899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 
@@ -124,10 +124,10 @@ const useCancelablePromise = () => {
 
 /***/ }),
 
-/***/ 899:
+/***/ 3899:
 /***/ (function(module) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__899__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__3899__;
 
 /***/ })
 
@@ -214,9 +214,9 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
-var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
+var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(3899);
 // EXTERNAL MODULE: ../huxy/use/useCancelablePromise/index.jsx + 5 modules
-var useCancelablePromise = __webpack_require__(57);
+var useCancelablePromise = __webpack_require__(8057);
 ;// CONCATENATED MODULE: ../huxy/use/useAsync/index.jsx
 
 
