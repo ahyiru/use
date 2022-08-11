@@ -83,14 +83,37 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-const incrementParameter = num => ++num;
+const createContainer = store => (name, initState) => {
+  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => {
+    const prevState = store == null ? void 0 : store.getState(name);
 
-const useUpdate = () => {
-  const [, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => setState(incrementParameter), []);
+    if (prevState !== undefined) {
+      return prevState;
+    }
+
+    if (initState !== undefined) {
+      store == null ? void 0 : store.setState({
+        [name]: initState
+      }, true);
+    }
+
+    return initState;
+  });
+  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(result => store == null ? void 0 : store.setState({
+    [name]: typeof result === 'function' ? result(store == null ? void 0 : store.getState(name)) : result
+  }), []);
+  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(callback => store == null ? void 0 : store.subscribe(name, callback), []);
+  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
+    let name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : name;
+    return store == null ? void 0 : store.clean(name);
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    store == null ? void 0 : store.subscribe(name, result => setState(result));
+  }, []);
+  return [state, update, subscribe, clean];
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (useUpdate);
+/* harmony default export */ __webpack_exports__["default"] = (createContainer);
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;
