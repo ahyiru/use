@@ -100,8 +100,15 @@ const useClickAway = function (elRef, handleEvent) {
       }
     };
 
-    document.addEventListener(events, handler, false);
-    return () => document.removeEventListener(events, handler, false);
+    const evts = typeof events === 'string' ? [events] : events;
+    evts.map(evt => {
+      document.addEventListener(evt, handler, false);
+    });
+    return () => {
+      evts.map(evt => {
+        document.removeEventListener(evt, handler, false);
+      });
+    };
   }, [elRef, handleEvent, events]);
 };
 

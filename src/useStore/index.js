@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 881:
+/***/ 142:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -189,9 +189,9 @@ const emitter = () => {
   const hub = {};
 
   const on = (name, cb) => {
-    var _hub$name;
-
-    hub[name] = (_hub$name = hub[name]) != null ? _hub$name : [];
+    if (!hub[name]) {
+      hub[name] = [];
+    }
 
     if (hub[name].indexOf(cb) === -1) {
       hub[name].push(cb);
@@ -228,7 +228,7 @@ const emitter = () => {
 };
 
 /* harmony default export */ var utils_emitter = (emitter);
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.18.9/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.19.0/node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -355,7 +355,7 @@ const createStore = () => {
 
 /* harmony default export */ var utils_createStore = (createStore);
 // EXTERNAL MODULE: ../huxy/use/createContainer/index.jsx
-var createContainer = __webpack_require__(881);
+var createContainer = __webpack_require__(142);
 ;// CONCATENATED MODULE: ../huxy/use/useStore/index.jsx
 
 

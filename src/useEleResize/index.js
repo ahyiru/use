@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 776:
+/***/ 728:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -262,7 +262,7 @@ const resize = function (element) {
 
 /* harmony default export */ var utils_resize = (resize);
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(776);
+var useRaf = __webpack_require__(728);
 ;// CONCATENATED MODULE: ../huxy/use/useEleResize/index.jsx
 
 
