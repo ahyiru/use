@@ -84,23 +84,19 @@ const debounce = function () {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-
     clearTimeout(timer);
     timer = setTimeout(() => func.apply(this, args), delay);
   };
 };
-
 /* harmony default export */ var utils_debounce = (debounce);
 ;// CONCATENATED MODULE: ../huxy/use/useDebounce/index.jsx
-
 
 
 const useDebounce = function (fn) {
   let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
   return (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useMemo)(() => utils_debounce(fn, delay), [delay]);
-}; // const useDebounce = (fn, delay) => useCallback(debounce(fn, delay), [delay]);
-
-
+};
+// const useDebounce = (fn, delay) => useCallback(debounce(fn, delay), [delay]);
 /* harmony default export */ var use_useDebounce = (useDebounce);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

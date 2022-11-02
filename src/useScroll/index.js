@@ -12,12 +12,11 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 122:
+/***/ 522:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
 
 const useRaf = function () {
   let initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -30,7 +29,6 @@ const useRaf = function () {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
   return [state, setRaf];
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (useRaf);
 
 /***/ }),
@@ -112,61 +110,51 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-
 /* harmony default export */ var utils_getType = (getType);
 ;// CONCATENATED MODULE: ../huxy/utils/isElement.js
 
-
 const isElement = value => utils_getType(value).indexOf('element') > -1;
-
 /* harmony default export */ var utils_isElement = (isElement);
 ;// CONCATENATED MODULE: ../huxy/utils/isBrowser.js
 const isBrowser = () => ![typeof window, typeof document].includes('undefined');
-
 /* harmony default export */ var utils_isBrowser = (isBrowser);
 ;// CONCATENATED MODULE: ../huxy/utils/getOffset.js
 
 
-
 const getOffset = function () {
+  var _ref, _window$pageXOffset, _ref2, _window$pageYOffset;
   let element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
   if (!utils_isBrowser()) {
     return {
       left: 0,
       top: 0
     };
   }
-
   if (utils_isElement(element)) {
     return {
       left: element.scrollLeft,
       top: element.scrollTop
     };
   }
-
   return {
-    left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-    top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    left: (_ref = (_window$pageXOffset = window.pageXOffset) != null ? _window$pageXOffset : document.documentElement.scrollLeft) != null ? _ref : document.body.scrollLeft,
+    top: (_ref2 = (_window$pageYOffset = window.pageYOffset) != null ? _window$pageYOffset : document.documentElement.scrollTop) != null ? _ref2 : document.body.scrollTop
   };
 };
-
 /* harmony default export */ var utils_getOffset = (getOffset);
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(122);
+var useRaf = __webpack_require__(522);
 ;// CONCATENATED MODULE: ../huxy/use/useScroll/index.jsx
-
 
 
 
 
 const useScroll = function () {
   let element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  const [state, setState] = (0,useRaf["default"])(utils_getOffset(element)); // const handler=useCallback(()=>setRaf(getOffset(element)),[element]);
-
+  const [state, setState] = (0,useRaf["default"])(utils_getOffset(element));
+  // const handler=useCallback(()=>setRaf(getOffset(element)),[element]);
   (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
     const handler = () => setState(utils_getOffset(element));
-
     const listener = utils_isElement(element) ? element : window;
     listener.addEventListener('scroll', handler, {
       capture: false,
@@ -176,7 +164,6 @@ const useScroll = function () {
   }, [element]);
   return state;
 };
-
 /* harmony default export */ var use_useScroll = (useScroll);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

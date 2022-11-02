@@ -82,18 +82,14 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
 const useFirstMounted = () => {
   const isFirst = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
-
   if (isFirst.current) {
     isFirst.current = false;
     return true;
   }
-
   return false;
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (useFirstMounted);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

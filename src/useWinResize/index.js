@@ -12,12 +12,11 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 122:
+/***/ 522:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
 
 const useRaf = function () {
   let initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -30,7 +29,6 @@ const useRaf = function () {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
   return [state, setRaf];
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (useRaf);
 
 /***/ }),
@@ -112,50 +110,41 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/isBrowser.js
 const isBrowser = () => ![typeof window, typeof document].includes('undefined');
-
 /* harmony default export */ var utils_isBrowser = (isBrowser);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-
 /* harmony default export */ var utils_getType = (getType);
 ;// CONCATENATED MODULE: ../huxy/utils/isElement.js
 
-
 const isElement = value => utils_getType(value).indexOf('element') > -1;
-
 /* harmony default export */ var utils_isElement = (isElement);
 ;// CONCATENATED MODULE: ../huxy/utils/getViewportSize.js
 
 
-
 const getViewportSize = function () {
+  var _window$innerWidth, _window$innerHeight;
   let element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
   if (!utils_isBrowser()) {
     return {
       width: 0,
       height: 0
     };
   }
-
   if (utils_isElement(element)) {
     return {
       width: element.clientWidth,
       height: element.clientHeight
     };
   }
-
   return {
-    width: window.innerWidth || document.documentElement.clientWidth,
-    height: window.innerHeight || document.documentElement.clientHeight
+    width: (_window$innerWidth = window.innerWidth) != null ? _window$innerWidth : document.documentElement.clientWidth,
+    height: (_window$innerHeight = window.innerHeight) != null ? _window$innerHeight : document.documentElement.clientHeight
   };
 };
-
 /* harmony default export */ var utils_getViewportSize = (getViewportSize);
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(122);
+var useRaf = __webpack_require__(522);
 ;// CONCATENATED MODULE: ../huxy/use/useWinResize/index.jsx
-
 
 
 
@@ -163,13 +152,11 @@ const useWinResize = () => {
   const [state, setState] = (0,useRaf["default"])(utils_getViewportSize());
   (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
     const handler = () => setState(utils_getViewportSize());
-
     window.addEventListener('resize', handler, false);
     return () => window.removeEventListener('resize', handler, false);
   }, []);
   return state;
 };
-
 /* harmony default export */ var use_useWinResize = (useWinResize);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

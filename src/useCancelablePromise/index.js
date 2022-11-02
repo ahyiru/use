@@ -77,39 +77,29 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-
 /* harmony default export */ var utils_getType = (getType);
 ;// CONCATENATED MODULE: ../huxy/utils/isObject.js
 
-
 const isObject = value => utils_getType(value) === 'object';
-
 /* harmony default export */ var utils_isObject = (isObject);
 ;// CONCATENATED MODULE: ../huxy/utils/isFunction.js
 
-
 const isFunction = value => utils_getType(value) === 'function';
-
 /* harmony default export */ var utils_isFunction = (isFunction);
 ;// CONCATENATED MODULE: ../huxy/utils/isAsync.js
 
 
 
-
 const isAsync = value => utils_getType(value) === 'promise' || utils_isObject(value) && utils_isFunction(value.then);
-
 /* harmony default export */ var utils_isAsync = (isAsync);
 ;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
-
 
 const cancelablePromise = function (promise) {
   let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 120000;
   let msg = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '请求超时！';
-
   if (!utils_isAsync(promise)) {
     return {};
   }
-
   let cancelFn = null;
   let timer = null;
   const promiseFn = new Promise((resolve, reject) => {
@@ -123,12 +113,10 @@ const cancelablePromise = function (promise) {
         errMsg: msg
       });
     };
-
     if (delay) {
       delay = typeof delay !== 'number' ? 120000 : delay;
       timer = setTimeout(() => cancelFn(msg), delay);
     }
-
     promise.then(result => {
       clearTimeout(timer);
       resolve({
@@ -145,10 +133,8 @@ const cancelablePromise = function (promise) {
     cancelFn
   };
 };
-
 /* harmony default export */ var utils_cancelablePromise = (cancelablePromise);
 ;// CONCATENATED MODULE: ../huxy/use/useCancelablePromise/index.jsx
-
 
 
 const useCancelablePromise = () => {
@@ -160,18 +146,15 @@ const useCancelablePromise = () => {
   const cancelablePromise = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function (fn) {
     let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
     const wrapPromise = utils_cancelablePromise(fn, delay);
-
     if (promises.current.indexOf(wrapPromise) === -1) {
       promises.current.push(wrapPromise);
     }
-
     return wrapPromise.promiseFn;
   }, []);
   return {
     cancelablePromise
   };
 };
-
 /* harmony default export */ var use_useCancelablePromise = (useCancelablePromise);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

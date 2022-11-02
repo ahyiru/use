@@ -82,7 +82,6 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
 const useEvent = handler => {
   const handlerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(() => {
@@ -90,7 +89,6 @@ const useEvent = handler => {
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(handlerRef.current, []);
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (useEvent);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

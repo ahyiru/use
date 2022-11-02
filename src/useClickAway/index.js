@@ -77,16 +77,12 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null ? obj : {}, prop);
-
 /* harmony default export */ var utils_hasProp = (hasProp);
 ;// CONCATENATED MODULE: ../huxy/utils/isRef.js
 
-
 const isRef = ref => utils_hasProp(ref, 'current');
-
 /* harmony default export */ var utils_isRef = (isRef);
 ;// CONCATENATED MODULE: ../huxy/use/useClickAway/index.jsx
-
 
 
 const useClickAway = function (elRef, handleEvent) {
@@ -94,12 +90,10 @@ const useClickAway = function (elRef, handleEvent) {
   (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
     const handler = event => {
       const el = utils_isRef(elRef) ? elRef.current : elRef;
-
       if (el != null && el.contains && !el.contains(event.target)) {
         handleEvent(event);
       }
     };
-
     const evts = typeof events === 'string' ? [events] : events;
     evts.map(evt => {
       document.addEventListener(evt, handler, false);
@@ -111,7 +105,6 @@ const useClickAway = function (elRef, handleEvent) {
     };
   }, [elRef, handleEvent, events]);
 };
-
 /* harmony default export */ var use_useClickAway = (useClickAway);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

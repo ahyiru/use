@@ -82,7 +82,6 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
 const useRaf = function () {
   let initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
@@ -94,7 +93,6 @@ const useRaf = function () {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
   return [state, setRaf];
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (useRaf);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

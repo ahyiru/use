@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 221:
+/***/ 787:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 
@@ -25,39 +25,29 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
-
 /* harmony default export */ var utils_getType = (getType);
 ;// CONCATENATED MODULE: ../huxy/utils/isObject.js
 
-
 const isObject = value => utils_getType(value) === 'object';
-
 /* harmony default export */ var utils_isObject = (isObject);
 ;// CONCATENATED MODULE: ../huxy/utils/isFunction.js
 
-
 const isFunction = value => utils_getType(value) === 'function';
-
 /* harmony default export */ var utils_isFunction = (isFunction);
 ;// CONCATENATED MODULE: ../huxy/utils/isAsync.js
 
 
 
-
 const isAsync = value => utils_getType(value) === 'promise' || utils_isObject(value) && utils_isFunction(value.then);
-
 /* harmony default export */ var utils_isAsync = (isAsync);
 ;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
-
 
 const cancelablePromise = function (promise) {
   let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 120000;
   let msg = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '请求超时！';
-
   if (!utils_isAsync(promise)) {
     return {};
   }
-
   let cancelFn = null;
   let timer = null;
   const promiseFn = new Promise((resolve, reject) => {
@@ -71,12 +61,10 @@ const cancelablePromise = function (promise) {
         errMsg: msg
       });
     };
-
     if (delay) {
       delay = typeof delay !== 'number' ? 120000 : delay;
       timer = setTimeout(() => cancelFn(msg), delay);
     }
-
     promise.then(result => {
       clearTimeout(timer);
       resolve({
@@ -93,10 +81,8 @@ const cancelablePromise = function (promise) {
     cancelFn
   };
 };
-
 /* harmony default export */ var utils_cancelablePromise = (cancelablePromise);
 ;// CONCATENATED MODULE: ../huxy/use/useCancelablePromise/index.jsx
-
 
 
 const useCancelablePromise = () => {
@@ -108,18 +94,15 @@ const useCancelablePromise = () => {
   const cancelablePromise = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function (fn) {
     let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
     const wrapPromise = utils_cancelablePromise(fn, delay);
-
     if (promises.current.indexOf(wrapPromise) === -1) {
       promises.current.push(wrapPromise);
     }
-
     return wrapPromise.promiseFn;
   }, []);
   return {
     cancelablePromise
   };
 };
-
 /* harmony default export */ var use_useCancelablePromise = (useCancelablePromise);
 
 /***/ }),
@@ -185,7 +168,7 @@ __webpack_require__.d(__webpack_exports__, {
   "default": function() { return /* binding */ use_useAsync; }
 });
 
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.19.0/node_modules/@babel/runtime/helpers/esm/defineProperty.js
+;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.1/node_modules/@babel/runtime/helpers/esm/defineProperty.js
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -197,21 +180,16 @@ function _defineProperty(obj, key, value) {
   } else {
     obj[key] = value;
   }
-
   return obj;
 }
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 // EXTERNAL MODULE: ../huxy/use/useCancelablePromise/index.jsx + 5 modules
-var useCancelablePromise = __webpack_require__(221);
+var useCancelablePromise = __webpack_require__(787);
 ;// CONCATENATED MODULE: ../huxy/use/useAsync/index.jsx
 
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-
 
 
 const useAsync = function () {
@@ -224,38 +202,32 @@ const useAsync = function () {
   const pendingRef = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useRef)({});
   const clearResult = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function () {
     let keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
     if (Array.isArray(keys) && keys.length) {
       keys.map(key => resultRef.current[key] = initState[key]);
     } else {
-      resultRef.current = initState; // pendingRef.current={};
-    } // setState(resultRef.current);
-
+      resultRef.current = initState;
+      // pendingRef.current={};
+    }
+    // setState(resultRef.current);
   }, []);
   const update = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function (asyncFns, handler) {
     let reset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     const keys = Object.keys(asyncFns);
     const eventKey = JSON.stringify(keys.sort());
-
     if (pendingRef.current[eventKey]) {
       return;
     }
-
     pendingRef.current[eventKey] = true;
-
     if (reset) {
       clearResult(Array.isArray(reset) ? reset : keys);
     }
-
     keys.map(key => {
       if (!resultRef.current[key]) {
         resultRef.current[key] = {};
       }
-
       resultRef.current[key].pending = true;
     });
     setState(_objectSpread({}, resultRef.current));
-
     for (let i = 0, l = keys.length; i < l; i++) {
       const key = keys[i];
       cancelablePromise(asyncFns[key]).then(res => {
@@ -263,29 +235,23 @@ const useAsync = function () {
           result,
           errMsg
         } = res;
-
         if (i === l - 1) {
           pendingRef.current[eventKey] = false;
         }
-
         if (typeof handler === 'function') {
           result = handler(result) || result;
         }
-
         resultRef.current[key] = _objectSpread(_objectSpread({}, result), {}, {
           pending: false
         });
-
         if (errMsg !== false) {
           return;
         }
-
         setState(_objectSpread({}, resultRef.current));
       }).catch(error => {
         if (i === l - 1) {
           pendingRef.current[eventKey] = false;
         }
-
         resultRef.current[key] = {
           error,
           pending: false
@@ -297,7 +263,6 @@ const useAsync = function () {
   }, []);
   return [state, update, clearResult];
 };
-
 /* harmony default export */ var use_useAsync = (useAsync);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

@@ -82,21 +82,17 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
 const createContainer = store => (name, initState) => {
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => {
     const prevState = store == null ? void 0 : store.getState(name);
-
     if (prevState !== undefined) {
       return prevState;
     }
-
     if (initState !== undefined) {
       store == null ? void 0 : store.setState({
         [name]: initState
       }, true);
     }
-
     return initState;
   });
   const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(result => store == null ? void 0 : store.setState({
@@ -112,7 +108,6 @@ const createContainer = store => (name, initState) => {
   }, []);
   return [state, update, subscribe, clean];
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (createContainer);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

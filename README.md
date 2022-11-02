@@ -1,6 +1,6 @@
 ## use
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ahyiru/router/blob/develop/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ahyiru/use/blob/develop/LICENSE)
 [![npm version](https://img.shields.io/npm/v/@huxy/use.svg)](https://www.npmjs.com/package/@huxy/use)
 [![Build Status](https://api.travis-ci.com/ahyiru/use.svg?branch=master)](https://app.travis-ci.com/github/ahyiru/use)
 [![](https://img.shields.io/badge/blog-ihuxy-blue.svg)](http://ihuxy.com/)
@@ -9,131 +9,135 @@
 
 异步处理
 
-```jsx
+```javascript
 const [result, updateResult] = useAsync({});
-const update = useCallback((params) => updateResult({res: fetchList({...commonParams, ...params})}, handleResult), []);
-
+const update = useCallback(params => updateResult({res: fetchList({...commonParams, ...params})}, handleResult), []);
 ```
 
 - result：返回结果
-- updateResult：更新函数。如：{userList: fetcher()}，userList：存在result里面的字段名，fetcher：自己的请求封装函数
+- updateResult：更新函数。如：{userList: fetcher()}，userList：存在 result 里面的字段名，fetcher：自己的请求封装函数
 - handleResult：处理返回结果函数
 
 ### useCancelablePromise
 
 可取消异步函数
 
-```jsx
-const {cancelablePromise}=useCancelablePromise();
+```javascript
+const {cancelablePromise} = useCancelablePromise();
 
-cancelablePromise(asyncFn,delay).then(res=>{
-
-}).catch(error=>{
-  
-});
-
+cancelablePromise(asyncFn, delay)
+  .then(res => {})
+  .catch(error => {});
 ```
 
-- delay：超时中断，默认true，超时时间2分钟
+- delay：超时中断，默认 true，超时时间 2 分钟
 
 ### useClickAway
 
 点击区域外部时触发的事件
 
-```jsx
-useClickAway(liRef, (e) => li.open && itemClick(e, li));
-
+```javascript
+useClickAway(liRef, e => li.open && itemClick(e, li));
 ```
 
 第一个参数为区域元素，第二个为点击区域外部时的回调函数。
 
 ### useDebounce
 
-```jsx
-useDebounce(fn,delay=60)
-
+```javascript
+useDebounce(fn, (delay = 60));
 ```
 
-第一个参数为需要防抖的函数，第二个为防抖时间，默认60ms。
+第一个参数为需要防抖的函数，第二个为防抖时间，默认 60ms。
 
 ### useDelayState
 
-延迟获取state
+延迟获取 state
 
-- delay：延迟时间，默认450ms
+- delay：延迟时间，默认 450ms
 
-```jsx
-const [delayOpen]=useDelayState(open,delay);
-
+```javascript
+const [delayOpen] = useDelayState(open, delay);
 ```
 
 ### useFirstMounted
 
 是否为第一次加载
 
-```jsx
-const isFirst=useFirstMounted();
-
+```javascript
+const isFirst = useFirstMounted();
 ```
+
+### useInterval
+
+定时器
+
+```javascript
+const [count, setCount] = useState(0);
+const [stop, setStop] = useState(false);
+
+const delay = 3000;
+
+useInterval(() => {
+  setCount(count + 1);
+}, stop ? null : delay);
+```
+
+第一个参数为回调函数，第二个参数是延迟时间。当 delay 值为 null 或 false 时，会停止回调函数的执行。
 
 ### usePrevious
 
-上一个state值
+上一个 state 值
 
-```jsx
-const prevState=usePrevious(state);
-
+```javascript
+const prevState = usePrevious(state);
 ```
 
 ### useRaf
 
 requestAnimationFrame
 
-```jsx
-const [state,setState]=useRaf({});
-
+```javascript
+const [state, setState] = useRaf({});
 ```
 
 ### useScroll
 
-```jsx
-const state=useScroll(element);
-
+```javascript
+const state = useScroll(element);
 ```
 
-传入监听滚动的元素，默认window
+传入监听滚动的元素，默认 window
 
-返回state为滚动位置信息。
+返回 state 为滚动位置信息。
 
 ### useSearch
 
 搜索函数
 
-```jsx
+```javascript
 const [filterTree, setFilterTree] = useSearch(null);
 
-setFilterTree(data, keyword, fields='name', childKey='children', exact=false);
-
+setFilterTree(data, keyword, (fields = 'name'), (childKey = 'children'), (exact = false));
 ```
 
 - data：列表数据
 - keyword：搜索值
 - fields：搜索字段，字符串或数组
-- childKey：子节点key
+- childKey：子节点 key
 - exact：是否为模糊搜索
 
 ### useStore
 
 状态管理
 
-```jsx
-const [state,update,subscribe,clean] = useStore(name, initState);
-
+```javascript
+const [state, update, subscribe, clean] = useStore(name, initState);
 ```
 
 input：
 
-- name：事件key
+- name：事件 key
 - initState：初始化值
 
 output：
@@ -145,28 +149,26 @@ output：
 
 可以自定义状态管理库：
 
-```jsx
-const store=createStore();
+```javascript
+const store = createStore();
 
-const useStore=createContainer(store);
-
+const useStore = createContainer(store);
 ```
 
 ### useUpdate
 
 更新
 
-```jsx
-const rerender=useUpdate();
+```javascript
+const rerender = useUpdate();
 rerender();
-
 ```
 
 ### useUpdateEffect
 
-初次进入不执行，state发生变更时执行。
+初次进入不执行，state 发生变更时执行。
 
-```jsx
+```javascript
 useUpdateEffect(()=>{
   ...
   return ()=>...;
@@ -176,10 +178,9 @@ useUpdateEffect(()=>{
 
 ### useWinResize/useEleResize
 
-```jsx
+```javascript
 const {width} = useWinResize();
 
 // delay：节流时间
-const state = useEleResize(ref, delay=250);
-
+const state = useEleResize(ref, (delay = 250));
 ```

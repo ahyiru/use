@@ -82,7 +82,6 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-
 const usePrevious = value => {
   const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -90,7 +89,6 @@ const usePrevious = value => {
   }, [value]);
   return ref.current;
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (usePrevious);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

@@ -88,25 +88,21 @@ const getTime = function () {
   const s = date.getSeconds();
   return [y, m, d, h, M, s, w];
 };
-
 /* harmony default export */ var utils_getTime = (getTime);
 ;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
 
 
 const week = ['日', '一', '二', '三', '四', '五', '六'];
-
 const formatTime = () => {
   const arr = utils_getTime();
   let str = '';
   ['-', '-', ' ', ':', ':', ''].map((d, i) => {
     var _arr$i;
-
     return str += ((_arr$i = arr[i]) != null ? _arr$i : '') + d;
   });
   str += ` 星期${week[arr.slice(-1)[0]]}`;
   return str;
 };
-
 const useTime = () => {
   const timeRef = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useRef)();
   const [time, setTime] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)('');
@@ -115,13 +111,11 @@ const useTime = () => {
     const getFormatTime = () => {
       timeRef.current = setInterval(() => setTime(formatTime()), 1000);
     };
-
     getFormatTime();
     return clear;
   }, []);
   return [time, clear];
 };
-
 /* harmony default export */ var use_useTime = (useTime);
 }();
 __webpack_exports__ = __webpack_exports__["default"];
