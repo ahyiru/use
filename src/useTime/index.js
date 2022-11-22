@@ -12,6 +12,28 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 713:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const useInterval = (callback, delay) => {
+  const savedCallback = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (delay) {
+      const timer = setInterval(() => savedCallback.current(), delay);
+      return () => clearInterval(timer);
+    }
+  }, [delay]);
+};
+/* harmony default export */ __webpack_exports__["default"] = (useInterval);
+
+/***/ }),
+
 /***/ 899:
 /***/ (function(module) {
 
@@ -46,6 +68,18 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__899__;
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -89,7 +123,10 @@ const getTime = function () {
   return [y, m, d, h, M, s, w];
 };
 /* harmony default export */ var utils_getTime = (getTime);
+// EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx
+var useInterval = __webpack_require__(713);
 ;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
+
 
 
 const week = ['日', '一', '二', '三', '四', '五', '六'];
@@ -104,17 +141,11 @@ const formatTime = () => {
   return str;
 };
 const useTime = () => {
-  const timeRef = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useRef)();
   const [time, setTime] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)('');
-  const clear = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(() => clearInterval(timeRef.current), []);
-  (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
-    const getFormatTime = () => {
-      timeRef.current = setInterval(() => setTime(formatTime()), 1000);
-    };
-    getFormatTime();
-    return clear;
-  }, []);
-  return [time, clear];
+  (0,useInterval["default"])(() => {
+    setTime(formatTime());
+  }, 1000);
+  return [time];
 };
 /* harmony default export */ var use_useTime = (useTime);
 }();
