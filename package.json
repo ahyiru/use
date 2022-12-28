@@ -1,6 +1,6 @@
 {
   "name": "@huxy/use",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "title": "useHooks",
   "feature": "0.0.1",
   "hooks": "0.0.1",
@@ -15,7 +15,8 @@
   "main": "./lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./src/*": "./src/*",
+    "./unpkg.js": "./lib/index.unpkg.js",
+    "./src/*": "./src/*/index.js",
     "./package.json": "./package.json"
   },
   "repository": {
