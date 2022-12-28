@@ -1,6 +1,6 @@
 {
   "name": "@huxy/use",
-  "version": "1.6.6",
+  "version": "1.7.0",
   "title": "useHooks",
   "feature": "0.0.1",
   "hooks": "0.0.1",
@@ -13,7 +13,11 @@
   ],
   "sideEffects": false,
   "main": "./lib/index.js",
-  "module": "./src/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ahyiru/use"
