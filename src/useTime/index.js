@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 372:
+/***/ 877:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -31,6 +31,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 /* harmony default export */ __webpack_exports__["default"] = (useInterval);
+
 
 /***/ }),
 
@@ -110,9 +111,8 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getTime.js
-const addZero = n => n < 10 ? '0' + n : n;
-const getTime = function () {
-  let day = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new Date();
+const addZero = (n) => n < 10 ? "0" + n : n;
+const getTime = (day = new Date()) => {
   const date = new Date(day);
   const y = date.getFullYear();
   const w = date.getDay();
@@ -124,41 +124,38 @@ const getTime = function () {
   return [y, m, d, h, M, s, w];
 };
 /* harmony default export */ var utils_getTime = (getTime);
+
 ;// CONCATENATED MODULE: ../huxy/utils/formatTime.js
 
-const defWeek = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-const formatDelimiter = function (str, target) {
-  let s = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '-';
-  return str.replace(new RegExp(s, 'g'), target);
-};
-const formatTime = function () {
-  let date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new Date();
-  let delimiter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ['-', '-', ' ', ':', ':', ''];
-  let week = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defWeek;
+const defWeek = ["\u661F\u671F\u65E5", "\u661F\u671F\u4E00", "\u661F\u671F\u4E8C", "\u661F\u671F\u4E09", "\u661F\u671F\u56DB", "\u661F\u671F\u4E94", "\u661F\u671F\u516D"];
+const formatDelimiter = (str, target, s = "-") => str.replace(new RegExp(s, "g"), target);
+const formatTime = (date = new Date(), delimiter = ["-", "-", " ", ":", ":", ""], week = defWeek) => {
   const times = utils_getTime(date);
-  let s = '';
+  let s = "";
   delimiter.map((d, i) => {
-    var _times$i;
-    return s += (i === 6 ? week[times[i]] : (_times$i = times[i]) != null ? _times$i : '') + d;
+    var _a;
+    return s += (i === 6 ? week[times[i]] : (_a = times[i]) != null ? _a : "") + d;
   });
   return s;
 };
 /* harmony default export */ var utils_formatTime = (formatTime);
+
 // EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx
-var useInterval = __webpack_require__(372);
+var useInterval = __webpack_require__(877);
 ;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
 
 
 
-const timeWithWeek = () => utils_formatTime(new Date(), ['-', '-', ' ', ':', ':', ' ', '']);
+const timeWithWeek = () => utils_formatTime(new Date(), ["-", "-", " ", ":", ":", " ", ""]);
 const useTime = () => {
-  const [time, setTime] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)('');
+  const [time, setTime] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)("");
   (0,useInterval["default"])(() => {
     setTime(timeWithWeek());
-  }, 1000);
+  }, 1e3);
   return [time];
 };
 /* harmony default export */ var use_useTime = (useTime);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

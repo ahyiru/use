@@ -82,12 +82,13 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const incrementParameter = num => ++num;
+const incrementParameter = (num) => ++num;
 const useUpdate = () => {
   const [, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => setState(incrementParameter), []);
 };
 /* harmony default export */ __webpack_exports__["default"] = (useUpdate);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

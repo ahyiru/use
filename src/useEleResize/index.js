@@ -12,17 +12,16 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 346:
+/***/ 848:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const useRaf = function () {
-  let initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+const useRaf = (initState = {}) => {
   const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
-  const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(value => {
+  const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value) => {
     cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => setState(value));
   }, []);
@@ -30,6 +29,7 @@ const useRaf = function () {
   return [state, setRaf];
 };
 /* harmony default export */ __webpack_exports__["default"] = (useRaf);
+
 
 /***/ }),
 
@@ -109,21 +109,23 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/isBrowser.js
-const isBrowser = () => ![typeof window, typeof document].includes('undefined');
+const isBrowser = () => ![typeof window, typeof document].includes("undefined");
 /* harmony default export */ var utils_isBrowser = (isBrowser);
+
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
-const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ var utils_getType = (getType);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isElement.js
 
-const isElement = value => utils_getType(value).indexOf('element') > -1;
+const isElement = (value) => utils_getType(value).indexOf("element") > -1;
 /* harmony default export */ var utils_isElement = (isElement);
+
 ;// CONCATENATED MODULE: ../huxy/utils/getViewportSize.js
 
 
-const getViewportSize = function () {
-  var _window$innerWidth, _window$innerHeight;
-  let element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+const getViewportSize = (element = null) => {
+  var _a, _b;
   if (!utils_isBrowser()) {
     return {
       width: 0,
@@ -137,63 +139,61 @@ const getViewportSize = function () {
     };
   }
   return {
-    width: (_window$innerWidth = window.innerWidth) != null ? _window$innerWidth : document.documentElement.clientWidth,
-    height: (_window$innerHeight = window.innerHeight) != null ? _window$innerHeight : document.documentElement.clientHeight
+    width: (_a = window.innerWidth) != null ? _a : document.documentElement.clientWidth,
+    height: (_b = window.innerHeight) != null ? _b : document.documentElement.clientHeight
   };
 };
 /* harmony default export */ var utils_getViewportSize = (getViewportSize);
+
 ;// CONCATENATED MODULE: ../huxy/utils/debounce.js
-const debounce = function () {
-  let func = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : () => {};
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
+const debounce = (func = () => {
+}, delay = 60) => {
   let timer = null;
-  return function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  return function(...args) {
     clearTimeout(timer);
     timer = setTimeout(() => func.apply(this, args), delay);
   };
 };
 /* harmony default export */ var utils_debounce = (debounce);
+
 ;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null ? obj : {}, prop);
 /* harmony default export */ var utils_hasProp = (hasProp);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isRef.js
 
-const isRef = ref => utils_hasProp(ref, 'current');
+const isRef = (ref) => utils_hasProp(ref, "current");
 /* harmony default export */ var utils_isRef = (isRef);
+
 ;// CONCATENATED MODULE: ../huxy/utils/resize.js
 
 
 
 const createObj = (element, resizeListener) => {
-  if (getComputedStyle(element).position === 'static') {
-    element.style.position = 'relative';
+  if (getComputedStyle(element).position === "static") {
+    element.style.position = "relative";
   }
-  const obj = document.createElement('object');
-  obj.setAttribute('style', 'display:block;position:absolute;top:0;left:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;opacity:0');
-  obj.setAttribute('class', 'resize-sensor');
+  const obj = document.createElement("object");
+  obj.setAttribute("style", "display:block;position:absolute;top:0;left:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;opacity:0");
+  obj.setAttribute("class", "resize-sensor");
   obj.onload = () => {
-    obj.contentDocument.defaultView.addEventListener('resize', resizeListener, false);
+    obj.contentDocument.defaultView.addEventListener("resize", resizeListener, false);
     resizeListener();
   };
-  obj.type = 'text/html';
+  obj.type = "text/html";
   element.appendChild(obj);
-  obj.data = 'about:blank';
+  obj.data = "about:blank";
   return obj;
 };
-const resize = function (element) {
-  var _element;
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
+const resize = (element, delay = 60) => {
   if (!utils_isBrowser()) {
     return;
   }
-  element = utils_isRef(element) ? element.current : (_element = element) != null ? _element : document.body;
-  let domObj = undefined;
+  element = utils_isRef(element) ? element.current : element != null ? element : document.body;
+  let domObj = void 0;
   let listeners = [];
-  const resizeListener = utils_debounce(() => listeners.map(listener => listener(element)), delay);
-  const bind = cb => {
+  const resizeListener = utils_debounce(() => listeners.map((listener) => listener(element)), delay);
+  const bind = (cb) => {
     if (!domObj) {
       domObj = createObj(element, resizeListener);
     }
@@ -201,7 +201,7 @@ const resize = function (element) {
       listeners.push(cb);
     }
   };
-  const unbind = cb => {
+  const unbind = (cb) => {
     const idx = listeners.indexOf(cb);
     if (idx !== -1) {
       listeners.splice(idx, 1);
@@ -213,10 +213,10 @@ const resize = function (element) {
   const destroy = () => {
     if (domObj && domObj.parentNode) {
       if (domObj.contentDocument) {
-        domObj.contentDocument.defaultView.removeEventListener('resize', resizeListener, false);
+        domObj.contentDocument.defaultView.removeEventListener("resize", resizeListener, false);
       }
       domObj.parentNode.removeChild(domObj);
-      domObj = undefined;
+      domObj = void 0;
       listeners = [];
     }
   };
@@ -228,24 +228,19 @@ const resize = function (element) {
   };
 };
 /* harmony default export */ var utils_resize = (resize);
+
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(346);
+var useRaf = __webpack_require__(848);
 ;// CONCATENATED MODULE: ../huxy/use/useEleResize/index.jsx
 
 
 
 
 
-const useEleResize = function () {
-  let ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
+const useEleResize = (ref = null, delay = 60) => {
   const element = utils_isRef(ref) ? ref.current : ref;
-  const {
-    bind,
-    destroy
-  } = utils_resize(element, delay);
+  const { bind, destroy } = utils_resize(element, delay);
   const [state, setState] = (0,useRaf["default"])(utils_getViewportSize(element));
-  // const handler=useCallback(()=>setRaf(getViewportSize(element)),[element]);
   (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
     const handler = () => element && setState(utils_getViewportSize(element));
     bind(handler);
@@ -254,6 +249,7 @@ const useEleResize = function () {
   return state;
 };
 /* harmony default export */ var use_useEleResize = (useEleResize);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

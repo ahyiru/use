@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 914:
+/***/ 427:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -27,6 +27,7 @@ const useFirstMounted = () => {
   return false;
 };
 /* harmony default export */ __webpack_exports__["default"] = (useFirstMounted);
+
 
 /***/ }),
 
@@ -99,11 +100,10 @@ var __webpack_exports__ = {};
 !function() {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _useFirstMounted__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(914);
+/* harmony import */ var _useFirstMounted__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(427);
 
 
-const useUpdateEffect = function (effect) {
-  let deps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+const useUpdateEffect = (effect, deps = []) => {
   const isFirst = (0,_useFirstMounted__WEBPACK_IMPORTED_MODULE_1__["default"])();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (!isFirst) {
@@ -112,6 +112,7 @@ const useUpdateEffect = function (effect) {
   }, deps);
 };
 /* harmony default export */ __webpack_exports__["default"] = (useUpdateEffect);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

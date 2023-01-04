@@ -107,32 +107,32 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
-const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ var utils_getType = (getType);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isArray.js
 
-const isArray = value => utils_getType(value) === 'array';
+const isArray = (value) => utils_getType(value) === "array";
 /* harmony default export */ var utils_isArray = (isArray);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isValidArr.js
 
-const isValidArr = value => utils_isArray(value) && !!value.length;
+const isValidArr = (value) => utils_isArray(value) && !!value.length;
 /* harmony default export */ var utils_isValidArr = (isValidArr);
+
 ;// CONCATENATED MODULE: ../huxy/utils/filter.js
 
-const filter = function (list, keyword) {
-  let fields = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
-  let exact = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  let str2Dom = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+const filter = (list, keyword, fields = [], exact = false, str2Dom = null) => {
   if (!utils_isValidArr(list)) {
     return [];
   }
   if (!keyword) {
     return list;
   }
-  fields = typeof fields === 'string' ? fields.split(',') : fields;
-  return list.filter(v => {
+  fields = typeof fields === "string" ? fields.split(",") : fields;
+  return list.filter((v) => {
     fields = fields.length > 0 ? fields : Object.keys(v);
-    const matched = fields.filter(field => {
+    const matched = fields.filter((field) => {
       const fieldValue = v[field];
       if (fieldValue == null) {
         return false;
@@ -140,13 +140,10 @@ const filter = function (list, keyword) {
       if (exact) {
         return fieldValue === keyword;
       }
-      const reg = new RegExp(keyword, 'gi');
+      const reg = new RegExp(keyword, "gi");
       const match = fieldValue.toString().match(reg);
-      // 高亮
       if (match && str2Dom) {
-        v[field] = str2Dom(fieldValue.toString().replace(reg, `<span style="background-color:yellow">${match[0]}</span>`), {
-          display: 'inline-block'
-        });
+        v[field] = str2Dom(fieldValue.toString().replace(reg, `<span style="background-color:yellow">${match[0]}</span>`), { display: "inline-block" });
       }
       return match;
     });
@@ -154,22 +151,22 @@ const filter = function (list, keyword) {
   });
 };
 /* harmony default export */ var utils_filter = (filter);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isObject.js
 
-const isObject = value => utils_getType(value) === 'object';
+const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ var utils_isObject = (isObject);
+
 ;// CONCATENATED MODULE: ../huxy/utils/unique.js
 
 
-const unique = function (arr) {
-  let key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'id';
+const unique = (arr, key = "id") => {
   if (!utils_isValidArr(arr)) {
     return arr;
   }
   const newArr = [];
   const keys = [];
-  arr.map(item => {
-    // const idKey=isObject(item)?item[key]??JSON.stringify(item):item;
+  arr.map((item) => {
     const idKey = utils_isObject(item) ? item[key] : item;
     if (!keys.includes(idKey)) {
       keys.push(idKey);
@@ -179,22 +176,26 @@ const unique = function (arr) {
   return newArr;
 };
 /* harmony default export */ var utils_unique = (unique);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isReactEle.js
-const isReactEle = value => (value == null ? void 0 : value['$$typeof']) && typeof value['$$typeof'] === 'symbol' && value['$$typeof']['description'] === 'react.element';
+const isReactEle = (value) => (value == null ? void 0 : value["$$typeof"]) && typeof value["$$typeof"] === "symbol" && value["$$typeof"]["description"] === "react.element";
 /* harmony default export */ var utils_isReactEle = (isReactEle);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isVueEle.js
-const isVueEle = value => value == null ? void 0 : value.__v_isVNode;
+const isVueEle = (value) => value == null ? void 0 : value.__v_isVNode;
 /* harmony default export */ var utils_isVueEle = (isVueEle);
+
 ;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null ? obj : {}, prop);
 /* harmony default export */ var utils_hasProp = (hasProp);
+
 ;// CONCATENATED MODULE: ../huxy/utils/clone.js
 
 
 
 
 
-const clone = obj => {
+const clone = (obj) => {
   if (!utils_isArray(obj) && !utils_isObject(obj)) {
     return obj;
   }
@@ -202,31 +203,28 @@ const clone = obj => {
   for (const i in obj) {
     if (utils_hasProp(obj, i)) {
       const item = obj[i];
-      // newObj[i]=typeof item==='object'?item!==obj?clone(item):'cyclic':item;
-      newObj[i] = utils_isReactEle(item) || utils_isVueEle(item) || typeof item !== 'object' ? item : item !== obj ? clone(item) : 'cyclic';
+      newObj[i] = utils_isReactEle(item) || utils_isVueEle(item) || typeof item !== "object" ? item : item !== obj ? clone(item) : "cyclic";
     } else {
-      Object.setPrototypeOf(newObj, {
-        [i]: obj[i]
-      });
+      Object.setPrototypeOf(newObj, { [i]: obj[i] });
     }
   }
   return newObj;
 };
 /* harmony default export */ var utils_clone = (clone);
+
 ;// CONCATENATED MODULE: ../huxy/utils/filterList.js
 
 
 
 
-const getMatched = fn => function (arr) {
-  let childKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'children';
+const getMatched = (fn) => (arr, childKey = "children") => {
   if (!Array.isArray(arr)) {
     return arr;
   }
   const list = utils_clone(arr);
-  const traver = data => {
+  const traver = (data) => {
     const matchedData = [];
-    data.map(v => {
+    data.map((v) => {
       if (utils_isValidArr(v[childKey])) {
         const matchChildren = traver(v[childKey]) || [];
         v[childKey] = matchChildren;
@@ -239,84 +237,23 @@ const getMatched = fn => function (arr) {
   };
   return traver(list);
 };
-const filterList = function (data, keyword, str2Dom) {
-  let fields = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'name';
-  let idKey = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'id';
-  let childKey = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 'children';
-  let exact = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
-  return getMatched((list, matchedItem) => utils_unique([...utils_filter(list, keyword, fields, exact, str2Dom), ...matchedItem], idKey))(data, childKey);
-};
+const filterList = (data, keyword, str2Dom, fields = "name", idKey = "id", childKey = "children", exact = false) => getMatched((list, matchedItem) => utils_unique([...utils_filter(list, keyword, fields, exact, str2Dom), ...matchedItem], idKey))(data, childKey);
 /* harmony default export */ var utils_filterList = (filterList);
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(obj) {
-  "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
-
-
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/defineProperty.js
-
-function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
 // EXTERNAL MODULE: ../../node_modules/.pnpm/react@18.2.0/node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(458);
 ;// CONCATENATED MODULE: ../huxy/components/str2React/index.jsx
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-const str2React = (str, props) => /*#__PURE__*/(0,jsx_runtime.jsx)("div", _objectSpread({
-  dangerouslySetInnerHTML: {
-    __html: str
-  }
-}, props));
+const str2React = (str, props) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { dangerouslySetInnerHTML: { __html: str }, ...props });
 /* harmony default export */ var components_str2React = (str2React);
+
 ;// CONCATENATED MODULE: ../huxy/use/useSearch/index.jsx
 
 
 
-const useSearch = function () {
-  let initState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  let str2Dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : components_str2React;
+const useSearch = (initState = null, str2Dom = components_str2React) => {
   const [state, setState] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)(initState);
-  const setList = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  const setList = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)((...args) => {
     const [data, keyword, ...rest] = args;
     if (!keyword) {
       setState(null);
@@ -329,6 +266,7 @@ const useSearch = function () {
   return [state, setList];
 };
 /* harmony default export */ var use_useSearch = (useSearch);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

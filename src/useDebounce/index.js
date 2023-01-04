@@ -76,28 +76,22 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/debounce.js
-const debounce = function () {
-  let func = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : () => {};
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
+const debounce = (func = () => {
+}, delay = 60) => {
   let timer = null;
-  return function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  return function(...args) {
     clearTimeout(timer);
     timer = setTimeout(() => func.apply(this, args), delay);
   };
 };
 /* harmony default export */ var utils_debounce = (debounce);
+
 ;// CONCATENATED MODULE: ../huxy/use/useDebounce/index.jsx
 
 
-const useDebounce = function (fn) {
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 60;
-  return (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useMemo)(() => utils_debounce(fn, delay), [delay]);
-};
-// const useDebounce = (fn, delay) => useCallback(debounce(fn, delay), [delay]);
+const useDebounce = (fn, delay = 60) => (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useMemo)(() => utils_debounce(fn, delay), [delay]);
 /* harmony default export */ var use_useDebounce = (useDebounce);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

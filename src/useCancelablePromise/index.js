@@ -76,54 +76,47 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
-const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ var utils_getType = (getType);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isObject.js
 
-const isObject = value => utils_getType(value) === 'object';
+const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ var utils_isObject = (isObject);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isFunction.js
 
-const isFunction = value => utils_getType(value) === 'function';
+const isFunction = (value) => utils_getType(value) === "function";
 /* harmony default export */ var utils_isFunction = (isFunction);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isAsync.js
 
 
 
-const isAsync = value => utils_getType(value) === 'promise' || utils_isObject(value) && utils_isFunction(value.then);
+const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(value) && utils_isFunction(value.then);
 /* harmony default export */ var utils_isAsync = (isAsync);
+
 ;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
 
-const cancelablePromise = function (promise) {
-  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 120000;
-  let msg = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '请求超时！';
+const cancelablePromise = (promise, delay = 12e4, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
     return {};
   }
   let cancelFn = null;
   let timer = null;
   const promiseFn = new Promise((resolve, reject) => {
-    // let errMsg=false;
-    cancelFn = function () {
-      let msg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'canceled';
-      // errMsg=msg;
+    cancelFn = (msg2 = "canceled") => {
       clearTimeout(timer);
-      resolve({
-        canceled: true,
-        errMsg: msg
-      });
+      resolve({ canceled: true, errMsg: msg2 });
     };
     if (delay) {
-      delay = typeof delay !== 'number' ? 120000 : delay;
+      delay = typeof delay !== "number" ? 12e4 : delay;
       timer = setTimeout(() => cancelFn(msg), delay);
     }
-    promise.then(result => {
+    promise.then((result) => {
       clearTimeout(timer);
-      resolve({
-        result,
-        errMsg: false
-      });
-    }).catch(error => {
+      resolve({ result, errMsg: false });
+    }).catch((error) => {
       clearTimeout(timer);
       reject(error);
     });
@@ -134,28 +127,30 @@ const cancelablePromise = function (promise) {
   };
 };
 /* harmony default export */ var utils_cancelablePromise = (cancelablePromise);
+
 ;// CONCATENATED MODULE: ../huxy/use/useCancelablePromise/index.jsx
 
 
 const useCancelablePromise = () => {
   const promises = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useRef)([]);
-  (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => () => {
-    promises.current.map(fn => fn.cancelFn());
-    promises.current = [];
-  }, []);
-  const cancelablePromise = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)(function (fn) {
-    let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(
+    () => () => {
+      promises.current.map((fn) => fn.cancelFn());
+      promises.current = [];
+    },
+    []
+  );
+  const cancelablePromise = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useCallback)((fn, delay = true) => {
     const wrapPromise = utils_cancelablePromise(fn, delay);
     if (promises.current.indexOf(wrapPromise) === -1) {
       promises.current.push(wrapPromise);
     }
     return wrapPromise.promiseFn;
   }, []);
-  return {
-    cancelablePromise
-  };
+  return { cancelablePromise };
 };
 /* harmony default export */ var use_useCancelablePromise = (useCancelablePromise);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

@@ -78,34 +78,36 @@ var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_re
 ;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null ? obj : {}, prop);
 /* harmony default export */ var utils_hasProp = (hasProp);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isRef.js
 
-const isRef = ref => utils_hasProp(ref, 'current');
+const isRef = (ref) => utils_hasProp(ref, "current");
 /* harmony default export */ var utils_isRef = (isRef);
+
 ;// CONCATENATED MODULE: ../huxy/use/useClickAway/index.jsx
 
 
-const useClickAway = function (elRef, handleEvent) {
-  let events = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'click';
+const useClickAway = (elRef, handleEvent, events = "click") => {
   (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
-    const handler = event => {
+    const handler = (event) => {
       const el = utils_isRef(elRef) ? elRef.current : elRef;
-      if (el != null && el.contains && !el.contains(event.target)) {
+      if ((el == null ? void 0 : el.contains) && !el.contains(event.target)) {
         handleEvent(event);
       }
     };
-    const evts = typeof events === 'string' ? [events] : events;
-    evts.map(evt => {
+    const evts = typeof events === "string" ? [events] : events;
+    evts.map((evt) => {
       document.addEventListener(evt, handler, false);
     });
     return () => {
-      evts.map(evt => {
+      evts.map((evt) => {
         document.removeEventListener(evt, handler, false);
       });
     };
   }, [elRef, handleEvent, events]);
 };
 /* harmony default export */ var use_useClickAway = (useClickAway);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

@@ -18,33 +18,27 @@ return /******/ (function() { // webpackBootstrap
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const createContainer = store => (name, initState) => {
+const createContainer = (store) => (name, initState) => {
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => {
     const prevState = store == null ? void 0 : store.getState(name);
-    if (prevState !== undefined) {
+    if (prevState !== void 0) {
       return prevState;
     }
-    if (initState !== undefined) {
-      store == null ? void 0 : store.setState({
-        [name]: initState
-      }, true);
+    if (initState !== void 0) {
+      store == null ? void 0 : store.setState({ [name]: initState }, true);
     }
     return initState;
   });
-  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(result => store == null ? void 0 : store.setState({
-    [name]: typeof result === 'function' ? result(store == null ? void 0 : store.getState(name)) : result
-  }), []);
-  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(callback => store == null ? void 0 : store.subscribe(name, callback), []);
-  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
-    let name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : name;
-    return store == null ? void 0 : store.clean(name);
-  }, []);
+  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((result) => store == null ? void 0 : store.setState({ [name]: typeof result === "function" ? result(store == null ? void 0 : store.getState(name)) : result }), []);
+  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((callback) => store == null ? void 0 : store.subscribe(name, callback), []);
+  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((name2 = name2) => store == null ? void 0 : store.clean(name2), []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    store == null ? void 0 : store.subscribe(name, result => setState(result));
+    store == null ? void 0 : store.subscribe(name, (result) => setState(result));
   }, []);
   return [state, update, subscribe, clean];
 };
 /* harmony default export */ __webpack_exports__["default"] = (createContainer);
+
 
 /***/ }),
 
@@ -122,32 +116,38 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
-const getType = value => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ var utils_getType = (getType);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isObject.js
 
-const isObject = value => utils_getType(value) === 'object';
+const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ var utils_isObject = (isObject);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isArray.js
 
-const isArray = value => utils_getType(value) === 'array';
+const isArray = (value) => utils_getType(value) === "array";
 /* harmony default export */ var utils_isArray = (isArray);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isReactEle.js
-const isReactEle = value => (value == null ? void 0 : value['$$typeof']) && typeof value['$$typeof'] === 'symbol' && value['$$typeof']['description'] === 'react.element';
+const isReactEle = (value) => (value == null ? void 0 : value["$$typeof"]) && typeof value["$$typeof"] === "symbol" && value["$$typeof"]["description"] === "react.element";
 /* harmony default export */ var utils_isReactEle = (isReactEle);
+
 ;// CONCATENATED MODULE: ../huxy/utils/isVueEle.js
-const isVueEle = value => value == null ? void 0 : value.__v_isVNode;
+const isVueEle = (value) => value == null ? void 0 : value.__v_isVNode;
 /* harmony default export */ var utils_isVueEle = (isVueEle);
+
 ;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null ? obj : {}, prop);
 /* harmony default export */ var utils_hasProp = (hasProp);
+
 ;// CONCATENATED MODULE: ../huxy/utils/clone.js
 
 
 
 
 
-const clone = obj => {
+const clone = (obj) => {
   if (!utils_isArray(obj) && !utils_isObject(obj)) {
     return obj;
   }
@@ -155,17 +155,15 @@ const clone = obj => {
   for (const i in obj) {
     if (utils_hasProp(obj, i)) {
       const item = obj[i];
-      // newObj[i]=typeof item==='object'?item!==obj?clone(item):'cyclic':item;
-      newObj[i] = utils_isReactEle(item) || utils_isVueEle(item) || typeof item !== 'object' ? item : item !== obj ? clone(item) : 'cyclic';
+      newObj[i] = utils_isReactEle(item) || utils_isVueEle(item) || typeof item !== "object" ? item : item !== obj ? clone(item) : "cyclic";
     } else {
-      Object.setPrototypeOf(newObj, {
-        [i]: obj[i]
-      });
+      Object.setPrototypeOf(newObj, { [i]: obj[i] });
     }
   }
   return newObj;
 };
 /* harmony default export */ var utils_clone = (clone);
+
 ;// CONCATENATED MODULE: ../huxy/utils/emitter.js
 const emitter = () => {
   const hub = {};
@@ -179,13 +177,12 @@ const emitter = () => {
   };
   const emit = (name, data) => {
     if (hub[name]) {
-      hub[name].map(cb => cb(data));
+      hub[name].map((cb) => cb(data));
     }
   };
-  const off = function (name) {
-    let cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  const off = (name, cb = null) => {
     if (hub[name]) {
-      if (typeof cb !== 'function') {
+      if (typeof cb !== "function") {
         return hub[name] = [];
       }
       const index = hub[name].indexOf(cb);
@@ -194,65 +191,14 @@ const emitter = () => {
       }
     }
   };
-  return {
-    on,
-    emit,
-    off
-  };
+  return { on, emit, off };
 };
 /* harmony default export */ var utils_emitter = (emitter);
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(obj) {
-  "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
-
-
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
-}
-;// CONCATENATED MODULE: ../../node_modules/.pnpm/@babel+runtime@7.20.7/node_modules/@babel/runtime/helpers/esm/defineProperty.js
-
-function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
 ;// CONCATENATED MODULE: ../huxy/utils/mergeOwnProp.js
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-
-const getOwnProp = obj => {
+const getOwnProp = (obj) => {
   const ownProp = {};
   for (let k in obj) {
     if (!utils_hasProp(obj, k)) {
@@ -268,74 +214,57 @@ const mergeOwnProp = (base, extend) => {
   if (!utils_isObject(extend)) {
     return base;
   }
-  const ownProp = _objectSpread(_objectSpread({}, getOwnProp(base)), getOwnProp(extend));
-  const newObj = _objectSpread(_objectSpread({}, base), extend);
-  Object.keys(ownProp).map(prop => {
-    Object.setPrototypeOf(newObj, {
-      [prop]: ownProp[prop]
-    });
+  const ownProp = { ...getOwnProp(base), ...getOwnProp(extend) };
+  const newObj = { ...base, ...extend };
+  Object.keys(ownProp).map((prop) => {
+    Object.setPrototypeOf(newObj, { [prop]: ownProp[prop] });
   });
   return newObj;
 };
 /* harmony default export */ var utils_mergeOwnProp = (mergeOwnProp);
+
 ;// CONCATENATED MODULE: ../huxy/utils/createStore.js
 
 
 
 
 const createStore = () => {
-  const {
-    on,
-    emit,
-    off
-  } = utils_emitter();
+  const { on, emit, off } = utils_emitter();
   const store = {};
-  const getState = name => utils_clone(store[name]);
-  const setState = function (state) {
-    let init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-    if (typeof state === 'function') {
+  const getState = (name) => utils_clone(store[name]);
+  const setState = (state, init = false) => {
+    if (typeof state === "function") {
       state = state(utils_clone(store));
     }
     if (!utils_isObject(state)) {
-      throw TypeError('必须传入object对象！');
+      throw TypeError("\u5FC5\u987B\u4F20\u5165object\u5BF9\u8C61\uFF01");
     }
     const newState = utils_clone(state);
-    Object.keys(newState).map(key => {
+    Object.keys(newState).map((key) => {
       const oldItem = store[key];
       const newItem = newState[key];
       const item = utils_isObject(newItem) && utils_isObject(oldItem) ? utils_mergeOwnProp(oldItem, newItem) : newItem;
       !init && emit(key, item);
       store[key] = item;
     });
-    // return off;
   };
-
   const subscribe = (name, cb) => {
     on(name, cb);
-    /* const value = getState(name);
-    if(value !== undefined){
-      cb(value);
-    } */
     return () => off(name, cb);
   };
-  const clean = name => {
-    if (typeof name === 'string') {
-      store[name] = undefined;
+  const clean = (name) => {
+    if (typeof name === "string") {
+      store[name] = void 0;
     } else if (Array.isArray(name)) {
-      name.map(n => store[n] = undefined);
+      name.map((n) => store[n] = void 0);
     } else {
-      Object.keys(store).map(key => store[key] = undefined);
+      Object.keys(store).map((key) => store[key] = void 0);
     }
   };
-  return {
-    getState,
-    setState,
-    subscribe,
-    unsubscribe: off,
-    clean
-  };
+  return { getState, setState, subscribe, unsubscribe: off, clean };
 };
 /* harmony default export */ var utils_createStore = (createStore);
+
 // EXTERNAL MODULE: ../huxy/use/createContainer/index.jsx
 var createContainer = __webpack_require__(587);
 ;// CONCATENATED MODULE: ../huxy/use/useStore/index.jsx
@@ -344,6 +273,7 @@ var createContainer = __webpack_require__(587);
 const store = utils_createStore();
 const useStore = (0,createContainer["default"])(store);
 /* harmony default export */ var use_useStore = (useStore);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

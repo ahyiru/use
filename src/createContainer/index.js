@@ -82,33 +82,27 @@ var __webpack_exports__ = {};
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const createContainer = store => (name, initState) => {
+const createContainer = (store) => (name, initState) => {
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => {
     const prevState = store == null ? void 0 : store.getState(name);
-    if (prevState !== undefined) {
+    if (prevState !== void 0) {
       return prevState;
     }
-    if (initState !== undefined) {
-      store == null ? void 0 : store.setState({
-        [name]: initState
-      }, true);
+    if (initState !== void 0) {
+      store == null ? void 0 : store.setState({ [name]: initState }, true);
     }
     return initState;
   });
-  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(result => store == null ? void 0 : store.setState({
-    [name]: typeof result === 'function' ? result(store == null ? void 0 : store.getState(name)) : result
-  }), []);
-  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(callback => store == null ? void 0 : store.subscribe(name, callback), []);
-  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
-    let name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : name;
-    return store == null ? void 0 : store.clean(name);
-  }, []);
+  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((result) => store == null ? void 0 : store.setState({ [name]: typeof result === "function" ? result(store == null ? void 0 : store.getState(name)) : result }), []);
+  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((callback) => store == null ? void 0 : store.subscribe(name, callback), []);
+  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((name2 = name2) => store == null ? void 0 : store.clean(name2), []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    store == null ? void 0 : store.subscribe(name, result => setState(result));
+    store == null ? void 0 : store.subscribe(name, (result) => setState(result));
   }, []);
   return [state, update, subscribe, clean];
 };
 /* harmony default export */ __webpack_exports__["default"] = (createContainer);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;

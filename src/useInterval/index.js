@@ -95,6 +95,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 /* harmony default export */ __webpack_exports__["default"] = (useInterval);
+
 }();
 __webpack_exports__ = __webpack_exports__["default"];
 /******/ 	return __webpack_exports__;
