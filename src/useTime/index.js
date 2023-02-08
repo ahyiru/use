@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 187:
+/***/ 754:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -112,7 +112,7 @@ __webpack_require__.d(__webpack_exports__, {
 var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
 ;// CONCATENATED MODULE: ../huxy/utils/getTime.js
 const addZero = (n) => n < 10 ? "0" + n : n;
-const getTime = (day = new Date()) => {
+const getTime = (day = /* @__PURE__ */ new Date()) => {
   const date = new Date(day);
   const y = date.getFullYear();
   const w = date.getDay();
@@ -129,7 +129,7 @@ const getTime = (day = new Date()) => {
 
 const defWeek = ["\u661F\u671F\u65E5", "\u661F\u671F\u4E00", "\u661F\u671F\u4E8C", "\u661F\u671F\u4E09", "\u661F\u671F\u56DB", "\u661F\u671F\u4E94", "\u661F\u671F\u516D"];
 const formatDelimiter = (str, target, s = "-") => str.replace(new RegExp(s, "g"), target);
-const formatTime = (date = new Date(), delimiter = ["-", "-", " ", ":", ":", ""], week = defWeek) => {
+const formatTime = (date = /* @__PURE__ */ new Date(), delimiter = ["-", "-", " ", ":", ":", ""], week = defWeek) => {
   const times = utils_getTime(date);
   let s = "";
   delimiter.map((d, i) => {
@@ -141,12 +141,12 @@ const formatTime = (date = new Date(), delimiter = ["-", "-", " ", ":", ":", ""]
 /* harmony default export */ var utils_formatTime = (formatTime);
 
 // EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx
-var useInterval = __webpack_require__(187);
+var useInterval = __webpack_require__(754);
 ;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
 
 
 
-const timeWithWeek = () => utils_formatTime(new Date(), ["-", "-", " ", ":", ":", " ", ""]);
+const timeWithWeek = () => utils_formatTime(/* @__PURE__ */ new Date(), ["-", "-", " ", ":", ":", " ", ""]);
 const useTime = () => {
   const [time, setTime] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)("");
   (0,useInterval["default"])(() => {

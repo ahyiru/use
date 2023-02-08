@@ -12,7 +12,7 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 552:
+/***/ 329:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
@@ -165,7 +165,29 @@ const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj != null 
 const isRef = (ref) => utils_hasProp(ref, "current");
 /* harmony default export */ var utils_isRef = (isRef);
 
+;// CONCATENATED MODULE: ../huxy/utils/findChildEle.js
+const findChildEle = (target, cname) => {
+  var _a;
+  const childrenEle = [];
+  const children = (_a = target.children) != null ? _a : [];
+  for (let i = 0, l = children.length; i < l; i++) {
+    const childEle = children[i];
+    if (childEle.className.indexOf(cname) > -1) {
+      childrenEle.push(childEle);
+    }
+  }
+  if (childrenEle.length === 0) {
+    return null;
+  }
+  if (childrenEle.length === 1) {
+    return childrenEle[0];
+  }
+  return childrenEle;
+};
+/* harmony default export */ var utils_findChildEle = (findChildEle);
+
 ;// CONCATENATED MODULE: ../huxy/utils/resize.js
+
 
 
 
@@ -190,11 +212,11 @@ const resize = (element, delay = 60) => {
     return;
   }
   element = utils_isRef(element) ? element.current : element != null ? element : document.body;
-  let domObj = void 0;
+  let domObj = utils_findChildEle(element, "resize-sensor");
   let listeners = [];
   const resizeListener = utils_debounce(() => listeners.map((listener) => listener(element)), delay);
   const bind = (cb) => {
-    if (!domObj) {
+    if (!utils_findChildEle(element, "resize-sensor")) {
       domObj = createObj(element, resizeListener);
     }
     if (listeners.indexOf(cb) === -1) {
@@ -230,7 +252,7 @@ const resize = (element, delay = 60) => {
 /* harmony default export */ var utils_resize = (resize);
 
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(552);
+var useRaf = __webpack_require__(329);
 ;// CONCATENATED MODULE: ../huxy/use/useEleResize/index.jsx
 
 
