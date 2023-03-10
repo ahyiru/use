@@ -12,46 +12,6 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 349:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const useFirstMounted = () => {
-  const isFirst = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
-  if (isFirst.current) {
-    isFirst.current = false;
-    return true;
-  }
-  return false;
-};
-/* harmony default export */ __webpack_exports__["default"] = (useFirstMounted);
-
-
-/***/ }),
-
-/***/ 735:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _useFirstMounted__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(349);
-
-
-const useUpdateEffect = (effect, deps = []) => {
-  const isFirst = (0,_useFirstMounted__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!isFirst) {
-      return effect();
-    }
-  }, deps);
-};
-/* harmony default export */ __webpack_exports__["default"] = (useUpdateEffect);
-
-
-/***/ }),
-
 /***/ 899:
 /***/ (function(module) {
 
@@ -86,18 +46,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__899__;
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -119,25 +67,56 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__899__;
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 !function() {
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _useUpdateEffect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(735);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": function() { return /* binding */ use_useBase64; }
+});
+
+// EXTERNAL MODULE: external {"root":"React","commonjs":"react","commonjs2":"react","amd":"react"}
+var external_root_React_commonjs_react_commonjs2_react_amd_react_ = __webpack_require__(899);
+;// CONCATENATED MODULE: ../huxy/utils/isUrl.js
+const isUrl = (url) => /^https?:\/\/[^\s/?.#]+\.[^\s]+/.test(url);
+/* harmony default export */ var utils_isUrl = (isUrl);
+
+;// CONCATENATED MODULE: ../huxy/utils/loadBase64.js
+const loadBase64 = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.addEventListener("load", () => resolve(reader.result));
+  reader.addEventListener("error", (error) => reject(error));
+});
+/* harmony default export */ var utils_loadBase64 = (loadBase64);
+
+;// CONCATENATED MODULE: ../huxy/utils/loadBase64ByUrl.js
 
 
-const useDelayState = (state, delay = 450) => {
-  const [delayState, setDelayState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(state);
-  (0,_useUpdateEffect__WEBPACK_IMPORTED_MODULE_1__["default"])(() => {
-    let timer;
-    if (state || delay === 0) {
-      setDelayState(state);
-    } else {
-      timer = setTimeout(() => setDelayState(state), delay);
-    }
-    return () => timer && clearTimeout(timer);
-  }, [state]);
-  return [delayState, setDelayState];
+const loadBase64ByUrl = async (url) => {
+  if (!utils_isUrl(url)) {
+    return url;
+  }
+  const response = await fetch(url);
+  const blob = await response.blob();
+  const result = await utils_loadBase64(blob);
+  return result;
 };
-/* harmony default export */ __webpack_exports__["default"] = (useDelayState);
+/* harmony default export */ var utils_loadBase64ByUrl = (loadBase64ByUrl);
+
+;// CONCATENATED MODULE: ../huxy/use/useBase64/index.jsx
+
+
+const useBase64 = (url) => {
+  const [dataUrl, setDataUrl] = (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useState)(url);
+  (0,external_root_React_commonjs_react_commonjs2_react_amd_react_.useEffect)(() => {
+    const getBase64 = async (url2) => {
+      const base64 = await utils_loadBase64ByUrl(url2);
+      setDataUrl(base64);
+    };
+    getBase64(url);
+  }, []);
+  return dataUrl;
+};
+/* harmony default export */ var use_useBase64 = (useBase64);
 
 }();
 __webpack_exports__ = __webpack_exports__["default"];

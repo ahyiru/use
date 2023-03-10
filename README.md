@@ -18,6 +18,18 @@ const update = useCallback(params => updateResult({res: fetchList({...commonPara
 - updateResult：更新函数。如：{userList: fetcher()}，userList：存在 result 里面的字段名，fetcher：自己的请求封装函数
 - handleResult：处理返回结果函数
 
+### useBase64
+
+将图片 src 地址 改为 base64。
+
+```javascript
+const Base64Image = ({src, ...rest}) => {
+  const url = useBase64(src);
+  return <img decoding="async" loading="lazy" {...rest} src={url} />;
+};
+```
+
+
 ### useCancelablePromise
 
 可取消异步函数

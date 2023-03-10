@@ -1,5 +1,6 @@
 export {default as createContainer} from './createContainer';
 export {default as useAsync} from './useAsync';
+export {default as useBase64} from './useBase64';
 export {default as useCancelablePromise} from './useCancelablePromise';
 export {default as useClickAway} from './useClickAway';
 export {default as useDebounce} from './useDebounce';
