@@ -1,111 +1,60 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"));
-	else if(typeof define === 'function' && define.amd)
-		define(["react"], factory);
-	else {
-		var a = typeof exports === 'object' ? factory(require("react")) : factory(root["React"]);
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE__899__) {
-return /******/ (function() { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 899:
-/***/ (function(module) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__899__;
-
-/***/ })
-
-/******/ 	});
+import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+/******/ // The require scope
+/******/ var __webpack_require__ = {};
+/******/ 
 /************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 			}
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
-/******/ 	
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-!function() {
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(899);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ use_createContainer)
+});
+
+;// CONCATENATED MODULE: external "react"
+var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
+var y = x => () => x
+const external_react_namespaceObject = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
+;// CONCATENATED MODULE: ../huxy/use/createContainer/index.jsx
 
 const createContainer = (store) => (name, initState) => {
-  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(() => {
-    const prevState = store == null ? void 0 : store.getState(name);
+  const [state, setState] = (0,external_react_namespaceObject.useState)(() => {
+    const prevState = store?.getState(name);
     if (prevState !== void 0) {
       return prevState;
     }
     if (initState !== void 0) {
-      store == null ? void 0 : store.setState({ [name]: initState }, true);
+      store?.setState({ [name]: initState }, true);
     }
     return initState;
   });
-  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((result) => store == null ? void 0 : store.setState({ [name]: typeof result === "function" ? result(store == null ? void 0 : store.getState(name)) : result }), []);
-  const subscribe = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((callback) => store == null ? void 0 : store.subscribe(name, callback), []);
-  const clean = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((name2 = name2) => store == null ? void 0 : store.clean(name2), []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    store == null ? void 0 : store.subscribe(name, (result) => setState(result));
+  const update = (0,external_react_namespaceObject.useCallback)((result) => store?.setState({ [name]: typeof result === "function" ? result(store?.getState(name)) : result }), []);
+  const subscribe = (0,external_react_namespaceObject.useCallback)((callback) => store?.subscribe(name, callback), []);
+  const clean = (0,external_react_namespaceObject.useCallback)((name2 = name2) => store?.clean(name2), []);
+  (0,external_react_namespaceObject.useEffect)(() => {
+    store?.subscribe(name, (result) => setState(result));
   }, []);
   return [state, update, subscribe, clean];
 };
-/* harmony default export */ __webpack_exports__["default"] = (createContainer);
+/* harmony default export */ const use_createContainer = (createContainer);
 
-}();
 __webpack_exports__ = __webpack_exports__["default"];
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
+var __webpack_exports__default = __webpack_exports__["default"];
+export { __webpack_exports__default as default };
