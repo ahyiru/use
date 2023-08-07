@@ -128,16 +128,18 @@ const state = useScroll(element);
 搜索函数
 
 ```javascript
-const [filterTree, setFilterTree] = useSearch(null);
+const [filterTree, setFilterTree] = useSearch(null, str2Dom);
 
-setFilterTree(data, keyword, (fields = 'name'), (childKey = 'children'), (exact = false));
+setFilterTree(data, keyword, fields = 'name', exact = false, idKey = 'id', childKey = 'children');
 ```
 
 - data：列表数据
 - keyword：搜索值
-- fields：搜索字段，字符串或数组
-- childKey：子节点 key
-- exact：是否为模糊搜索
+- fields：搜索字段，字符串或数组。根据属性过滤，默认 `name`，设为 `null` 则全局所有属性搜索
+- exact：是否为精确匹配，默认是模糊搜索
+- idKey：节点唯一标识符
+- childKey：子节点属性值
+- str2Dom：高亮关键词
 
 ### useStore
 

@@ -228,7 +228,7 @@ const getMatched = (fn) => (arr, childKey = "children") => {
   };
   return traver(list);
 };
-const filterList = (data, keyword, str2Dom, fields = "name", idKey = "id", childKey = "children", exact = false) => getMatched((list, matchedItem) => utils_unique([...utils_filter(list, keyword, fields, exact, str2Dom), ...matchedItem], idKey))(data, childKey);
+const filterList = (data, keyword, fields = "name", exact = false, idKey = "id", childKey = "children", str2Dom) => getMatched((list, matchedItem) => utils_unique([...utils_filter(list, keyword, fields, exact, str2Dom), ...matchedItem], idKey))(data, childKey);
 /* harmony default export */ const utils_filterList = (filterList);
 
 // EXTERNAL MODULE: ../../node_modules/react/jsx-runtime.js
@@ -245,11 +245,11 @@ const str2React = (str, props) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { d
 const useSearch = (initState = null, str2Dom = components_str2React) => {
   const [state, setState] = (0,external_react_.useState)(initState);
   const setList = (0,external_react_.useCallback)((...args) => {
-    const [data, keyword, ...rest] = args;
+    const [data, keyword, fields, exact, idKey, childKey] = args;
     if (!keyword) {
       setState(null);
     } else {
-      args = [data, keyword, str2Dom, ...rest];
+      args = [data, keyword, fields, exact, idKey, childKey, str2Dom];
       const newList = utils_filterList(...args);
       setState(newList);
     }
