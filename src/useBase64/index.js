@@ -25,7 +25,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useBase64)
+  Z: () => (/* binding */ use_useBase64)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -75,6 +75,5 @@ const useBase64 = (url) => {
 };
 /* harmony default export */ const use_useBase64 = (useBase64);
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

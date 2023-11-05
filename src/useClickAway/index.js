@@ -25,7 +25,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useClickAway)
+  Z: () => (/* binding */ use_useClickAway)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -65,6 +65,5 @@ const useClickAway = (elRef, handleEvent, events = "click") => {
 };
 /* harmony default export */ const use_useClickAway = (useClickAway);
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

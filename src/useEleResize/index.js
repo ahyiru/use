@@ -5,7 +5,7 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
 
@@ -84,7 +84,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useEleResize)
+  Z: () => (/* binding */ use_useEleResize)
 });
 
 // EXTERNAL MODULE: external "react"
@@ -241,7 +241,7 @@ var useRaf = __webpack_require__(107);
 const useEleResize = (ref = null, delay = 60) => {
   const element = utils_isRef(ref) ? ref.current : ref;
   const { bind, destroy } = utils_resize(element, delay);
-  const [state, setState] = (0,useRaf["default"])(utils_getViewportSize(element));
+  const [state, setState] = (0,useRaf/* default */.Z)(utils_getViewportSize(element));
   (0,external_react_.useEffect)(() => {
     const handler = () => element && setState(utils_getViewportSize(element));
     bind(handler);
@@ -253,6 +253,5 @@ const useEleResize = (ref = null, delay = 60) => {
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

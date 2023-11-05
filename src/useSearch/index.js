@@ -92,7 +92,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useSearch)
+  Z: () => (/* binding */ use_useSearch)
 });
 
 // EXTERNAL MODULE: external "react"
@@ -260,6 +260,5 @@ const useSearch = (initState = null, str2Dom = components_str2React) => {
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

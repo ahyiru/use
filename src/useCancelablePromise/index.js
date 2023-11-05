@@ -61,7 +61,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useCancelablePromise)
+  Z: () => (/* binding */ use_useCancelablePromise)
 });
 
 // EXTERNAL MODULE: external "react"
@@ -89,7 +89,7 @@ const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(
 
 ;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
 
-const cancelablePromise = (promise, delay = 12e4, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
+const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
     return {};
   }
@@ -144,6 +144,5 @@ const useCancelablePromise = () => {
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

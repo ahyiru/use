@@ -5,7 +5,7 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
 
@@ -86,7 +86,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useTime)
+  Z: () => (/* binding */ use_useTime)
 });
 
 // EXTERNAL MODULE: external "react"
@@ -127,7 +127,7 @@ var useInterval = __webpack_require__(777);
 const timeWithWeek = () => utils_formatTime(/* @__PURE__ */ new Date(), ["-", "-", " ", ":", ":", " ", ""]);
 const useTime = () => {
   const [time, setTime] = (0,external_react_.useState)("");
-  (0,useInterval["default"])(() => {
+  (0,useInterval/* default */.Z)(() => {
     setTime(timeWithWeek());
   }, 1e3);
   return [time];
@@ -136,6 +136,5 @@ const useTime = () => {
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

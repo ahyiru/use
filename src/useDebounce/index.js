@@ -25,7 +25,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useDebounce)
+  Z: () => (/* binding */ use_useDebounce)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -49,6 +49,5 @@ const debounce = (func = () => {
 const useDebounce = (fn, delay = 60) => (0,external_react_namespaceObject.useMemo)(() => utils_debounce(fn, delay), [delay]);
 /* harmony default export */ const use_useDebounce = (useDebounce);
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

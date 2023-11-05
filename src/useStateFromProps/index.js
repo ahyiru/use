@@ -25,7 +25,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useStateFromProps)
+  Z: () => (/* binding */ use_useStateFromProps)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -41,6 +41,5 @@ const useStateFromProps = (props) => {
 };
 /* harmony default export */ const use_useStateFromProps = (useStateFromProps);
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

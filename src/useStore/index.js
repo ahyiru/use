@@ -7,7 +7,7 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_createContainer)
+  Z: () => (/* binding */ use_createContainer)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -91,7 +91,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useStore)
+  Z: () => (/* binding */ use_useStore)
 });
 
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
@@ -253,11 +253,10 @@ var createContainer = __webpack_require__(557);
 
 
 const store = utils_createStore();
-const useStore = (0,createContainer["default"])(store);
+const useStore = (0,createContainer/* default */.Z)(store);
 /* harmony default export */ const use_useStore = (useStore);
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

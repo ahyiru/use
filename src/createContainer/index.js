@@ -25,7 +25,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_createContainer)
+  Z: () => (/* binding */ use_createContainer)
 });
 
 ;// CONCATENATED MODULE: external "react"
@@ -55,6 +55,5 @@ const createContainer = (store) => (name, initState) => {
 };
 /* harmony default export */ const use_createContainer = (createContainer);
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };

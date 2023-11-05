@@ -7,7 +7,7 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ use_useCancelablePromise)
+  Z: () => (/* binding */ use_useCancelablePromise)
 });
 
 // EXTERNAL MODULE: external "react"
@@ -35,7 +35,7 @@ const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(
 
 ;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
 
-const cancelablePromise = (promise, delay = 12e4, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
+const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
     return {};
   }
@@ -149,14 +149,14 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
 /* harmony import */ var _useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(913);
 
 
 const useAsync = (initState = {}) => {
-  const { cancelablePromise } = (0,_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  const { cancelablePromise } = (0,_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z)();
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
   const resultRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
   const pendingRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
@@ -215,6 +215,5 @@ const useAsync = (initState = {}) => {
 
 })();
 
-__webpack_exports__ = __webpack_exports__["default"];
-var __webpack_exports__default = __webpack_exports__["default"];
+var __webpack_exports__default = __webpack_exports__.Z;
 export { __webpack_exports__default as default };
