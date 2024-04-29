@@ -1,37 +1,37 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 777:
+/***/ 922:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ use_useInterval)
+});
+
+;// CONCATENATED MODULE: external "react"
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+;// CONCATENATED MODULE: ../huxy/use/useInterval/index.jsx
 
 const useInterval = (callback, delay) => {
-  const savedCallback = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+  const savedCallback = (0,external_react_namespaceObject.useRef)();
+  (0,external_react_namespaceObject.useEffect)(() => {
     savedCallback.current = callback;
   }, [callback]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+  (0,external_react_namespaceObject.useEffect)(() => {
     if (delay) {
       const timer = setInterval(() => savedCallback.current(), delay);
       return () => clearInterval(timer);
     }
   }, [delay]);
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useInterval);
+/* harmony default export */ const use_useInterval = (useInterval);
 
-
-/***/ }),
-
-/***/ 810:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-module.exports = x({ ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useRef"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useRef, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
 
 /***/ })
 
@@ -86,11 +86,11 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useTime)
+  A: () => (/* binding */ use_useTime)
 });
 
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(810);
+var external_react_ = __webpack_require__(649);
 ;// CONCATENATED MODULE: ../huxy/utils/getTime.js
 const addZero = (n) => n < 10 ? "0" + n : n;
 const getTime = (day = /* @__PURE__ */ new Date()) => {
@@ -118,8 +118,8 @@ const formatTime = (date = /* @__PURE__ */ new Date(), delimiter = ["-", "-", " 
 };
 /* harmony default export */ const utils_formatTime = (formatTime);
 
-// EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx
-var useInterval = __webpack_require__(777);
+// EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx + 1 modules
+var useInterval = __webpack_require__(922);
 ;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
 
 
@@ -127,7 +127,7 @@ var useInterval = __webpack_require__(777);
 const timeWithWeek = () => utils_formatTime(/* @__PURE__ */ new Date(), ["-", "-", " ", ":", ":", " ", ""]);
 const useTime = () => {
   const [time, setTime] = (0,external_react_.useState)("");
-  (0,useInterval/* default */.Z)(() => {
+  (0,useInterval/* default */.A)(() => {
     setTime(timeWithWeek());
   }, 1e3);
   return [time];
@@ -136,5 +136,5 @@ const useTime = () => {
 
 })();
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

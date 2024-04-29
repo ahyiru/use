@@ -25,13 +25,15 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_createContainer)
+  A: () => (/* binding */ use_createContainer)
 });
 
 ;// CONCATENATED MODULE: external "react"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-const external_react_namespaceObject = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
 ;// CONCATENATED MODULE: ../huxy/use/createContainer/index.jsx
 
 const createContainer = (store) => (name, initState) => {
@@ -55,5 +57,5 @@ const createContainer = (store) => (name, initState) => {
 };
 /* harmony default export */ const use_createContainer = (createContainer);
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

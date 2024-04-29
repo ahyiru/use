@@ -1,35 +1,35 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 107:
+/***/ 948:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ use_useRaf)
+});
+
+;// CONCATENATED MODULE: external "react"
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+;// CONCATENATED MODULE: ../huxy/use/useRaf/index.jsx
 
 const useRaf = (initState = {}) => {
-  const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
-  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
-  const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value) => {
+  const frame = (0,external_react_namespaceObject.useRef)(0);
+  const [state, setState] = (0,external_react_namespaceObject.useState)(initState);
+  const setRaf = (0,external_react_namespaceObject.useCallback)((value) => {
     cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => setState(value));
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
+  (0,external_react_namespaceObject.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
   return [state, setRaf];
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRaf);
+/* harmony default export */ const use_useRaf = (useRaf);
 
-
-/***/ }),
-
-/***/ 810:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-module.exports = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useRef"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useRef, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
 
 /***/ })
 
@@ -84,11 +84,11 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useEleResize)
+  A: () => (/* binding */ use_useEleResize)
 });
 
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(810);
+var external_react_ = __webpack_require__(649);
 ;// CONCATENATED MODULE: ../huxy/utils/isBrowser.js
 const isBrowser = () => ![typeof window, typeof document].includes("undefined");
 /* harmony default export */ const utils_isBrowser = (isBrowser);
@@ -230,8 +230,8 @@ const resize = (element, delay = 60) => {
 };
 /* harmony default export */ const utils_resize = (resize);
 
-// EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
-var useRaf = __webpack_require__(107);
+// EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx + 1 modules
+var useRaf = __webpack_require__(948);
 ;// CONCATENATED MODULE: ../huxy/use/useEleResize/index.jsx
 
 
@@ -241,7 +241,7 @@ var useRaf = __webpack_require__(107);
 const useEleResize = (ref = null, delay = 60) => {
   const element = utils_isRef(ref) ? ref.current : ref;
   const { bind, destroy } = utils_resize(element, delay);
-  const [state, setState] = (0,useRaf/* default */.Z)(utils_getViewportSize(element));
+  const [state, setState] = (0,useRaf/* default */.A)(utils_getViewportSize(element));
   (0,external_react_.useEffect)(() => {
     const handler = () => element && setState(utils_getViewportSize(element));
     bind(handler);
@@ -253,5 +253,5 @@ const useEleResize = (ref = null, delay = 60) => {
 
 })();
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

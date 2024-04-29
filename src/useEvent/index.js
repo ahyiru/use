@@ -25,13 +25,15 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useEvent)
+  A: () => (/* binding */ use_useEvent)
 });
 
 ;// CONCATENATED MODULE: external "react"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-const external_react_namespaceObject = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useLayoutEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useLayoutEffect, ["useRef"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useRef });
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useLayoutEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useLayoutEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
 ;// CONCATENATED MODULE: ../huxy/use/useEvent/index.jsx
 
 const useEvent = (handler) => {
@@ -43,5 +45,5 @@ const useEvent = (handler) => {
 };
 /* harmony default export */ const use_useEvent = (useEvent);
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

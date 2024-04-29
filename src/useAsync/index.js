@@ -1,17 +1,17 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 913:
+/***/ 175:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useCancelablePromise)
+  A: () => (/* binding */ use_useCancelablePromise)
 });
 
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(810);
+var external_react_ = __webpack_require__(649);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
@@ -89,15 +89,6 @@ const useCancelablePromise = () => {
 /* harmony default export */ const use_useCancelablePromise = (useCancelablePromise);
 
 
-/***/ }),
-
-/***/ 810:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-module.exports = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useRef"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useRef, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
-
 /***/ })
 
 /******/ });
@@ -148,26 +139,36 @@ module.exports = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.us
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(810);
-/* harmony import */ var _useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(913);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ use_useAsync)
+});
+
+;// CONCATENATED MODULE: external "react"
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+// EXTERNAL MODULE: ../huxy/use/useCancelablePromise/index.jsx + 5 modules
+var useCancelablePromise = __webpack_require__(175);
+;// CONCATENATED MODULE: ../huxy/use/useAsync/index.jsx
 
 
 const useAsync = (initState = {}) => {
-  const { cancelablePromise } = (0,_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z)();
-  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
-  const resultRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
-  const pendingRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
-  const clearResult = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((keys = null) => {
+  const { cancelablePromise } = (0,useCancelablePromise/* default */.A)();
+  const [state, setState] = (0,external_react_namespaceObject.useState)(initState);
+  const resultRef = (0,external_react_namespaceObject.useRef)({});
+  const pendingRef = (0,external_react_namespaceObject.useRef)({});
+  const clearResult = (0,external_react_namespaceObject.useCallback)((keys = null) => {
     if (Array.isArray(keys) && keys.length) {
       keys.map((key) => resultRef.current[key] = initState[key]);
     } else {
       resultRef.current = initState;
     }
   }, []);
-  const update = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((asyncFns, handler, reset = false) => {
+  const update = (0,external_react_namespaceObject.useCallback)((asyncFns, handler, reset = false) => {
     const keys = Object.keys(asyncFns);
     const eventKey = JSON.stringify(keys.sort());
     if (pendingRef.current[eventKey]) {
@@ -211,9 +212,9 @@ const useAsync = (initState = {}) => {
   }, []);
   return [state, update, clearResult];
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useAsync);
+/* harmony default export */ const use_useAsync = (useAsync);
 
 })();
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

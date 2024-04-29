@@ -1,19 +1,21 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 557:
+/***/ 559:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_createContainer)
+  A: () => (/* binding */ use_createContainer)
 });
 
 ;// CONCATENATED MODULE: external "react"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-const external_react_namespaceObject = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
 ;// CONCATENATED MODULE: ../huxy/use/createContainer/index.jsx
 
 const createContainer = (store) => (name, initState) => {
@@ -91,7 +93,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useStore)
+  A: () => (/* binding */ use_useStore)
 });
 
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
@@ -248,15 +250,15 @@ const createStore = () => {
 /* harmony default export */ const utils_createStore = (createStore);
 
 // EXTERNAL MODULE: ../huxy/use/createContainer/index.jsx + 1 modules
-var createContainer = __webpack_require__(557);
+var createContainer = __webpack_require__(559);
 ;// CONCATENATED MODULE: ../huxy/use/useStore/index.jsx
 
 
 const store = utils_createStore();
-const useStore = (0,createContainer/* default */.Z)(store);
+const useStore = (0,createContainer/* default */.A)(store);
 /* harmony default export */ const use_useStore = (useStore);
 
 })();
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

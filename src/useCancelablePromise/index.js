@@ -1,12 +1,14 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 810:
+/***/ 649:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-module.exports = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useEffect"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useEffect, ["useRef"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useRef });
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
 
 /***/ })
 
@@ -61,11 +63,11 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useCancelablePromise)
+  A: () => (/* binding */ use_useCancelablePromise)
 });
 
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(810);
+var external_react_ = __webpack_require__(649);
 ;// CONCATENATED MODULE: ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
@@ -144,5 +146,5 @@ const useCancelablePromise = () => {
 
 })();
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

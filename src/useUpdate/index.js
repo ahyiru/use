@@ -25,13 +25,15 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  Z: () => (/* binding */ use_useUpdate)
+  A: () => (/* binding */ use_useUpdate)
 });
 
 ;// CONCATENATED MODULE: external "react"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
-const external_react_namespaceObject = x({ ["useCallback"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useCallback, ["useState"]: () => __WEBPACK_EXTERNAL_MODULE_react__.useState });
+var x = (y) => {
+	var x = {}; __webpack_require__.d(x, y); return x
+} 
+var y = (x) => (() => (x))
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
 ;// CONCATENATED MODULE: ../huxy/use/useUpdate/index.jsx
 
 const incrementParameter = (num) => ++num;
@@ -41,5 +43,5 @@ const useUpdate = () => {
 };
 /* harmony default export */ const use_useUpdate = (useUpdate);
 
-var __webpack_exports__default = __webpack_exports__.Z;
+var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };
