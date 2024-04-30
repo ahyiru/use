@@ -1,35 +1,37 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 948:
+/***/ 630:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useRaf)
-});
+const useRaf = (initState = {}) => {
+  const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
+  const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value) => {
+    cancelAnimationFrame(frame.current);
+    frame.current = requestAnimationFrame(() => setState(value));
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
+  return [state, setRaf];
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRaf);
 
-;// CONCATENATED MODULE: external "react"
+
+/***/ }),
+
+/***/ 649:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
-;// CONCATENATED MODULE: ../huxy/use/useRaf/index.jsx
-
-const useRaf = (initState = {}) => {
-  const frame = (0,external_react_namespaceObject.useRef)(0);
-  const [state, setState] = (0,external_react_namespaceObject.useState)(initState);
-  const setRaf = (0,external_react_namespaceObject.useCallback)((value) => {
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => setState(value));
-  }, []);
-  (0,external_react_namespaceObject.useEffect)(() => () => cancelAnimationFrame(frame.current), []);
-  return [state, setRaf];
-};
-/* harmony default export */ const use_useRaf = (useRaf);
-
+module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
 
 /***/ })
 
@@ -125,8 +127,8 @@ const getOffset = (element = null) => {
 };
 /* harmony default export */ const utils_getOffset = (getOffset);
 
-// EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx + 1 modules
-var useRaf = __webpack_require__(948);
+// EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
+var useRaf = __webpack_require__(630);
 ;// CONCATENATED MODULE: ../huxy/use/useScroll/index.jsx
 
 
