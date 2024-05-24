@@ -111,7 +111,7 @@ const isArray = (value) => utils_getType(value) === "array";
 /* harmony default export */ const utils_isArray = (isArray);
 
 ;// CONCATENATED MODULE: ../huxy/utils/isReactEle.js
-const isReactEle = (value) => value?.["$$typeof"] && typeof value["$$typeof"] === "symbol" && value["$$typeof"]["description"] === "react.element";
+const isReactEle = (value) => value?.["$$typeof"] && typeof value["$$typeof"] === "symbol" && ["react.transitional.element", "react.element"].includes(value["$$typeof"]["description"]);
 /* harmony default export */ const utils_isReactEle = (isReactEle);
 
 ;// CONCATENATED MODULE: ../huxy/utils/isVueEle.js
