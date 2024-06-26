@@ -81,8 +81,6 @@ module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.u
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -252,8 +250,6 @@ const useEleResize = (ref = null, delay = 60) => {
   return state;
 };
 /* harmony default export */ const use_useEleResize = (useEleResize);
-
-})();
 
 var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

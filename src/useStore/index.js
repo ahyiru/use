@@ -88,8 +88,6 @@ const createContainer = (store) => (name, initState) => {
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -111,7 +109,7 @@ const isArray = (value) => utils_getType(value) === "array";
 /* harmony default export */ const utils_isArray = (isArray);
 
 ;// CONCATENATED MODULE: ../huxy/utils/isReactEle.js
-const isReactEle = (value) => value?.["$$typeof"] && typeof value["$$typeof"] === "symbol" && ["react.transitional.element", "react.element"].includes(value["$$typeof"]["description"]);
+const isReactEle = (value) => value?.["$$typeof"] && typeof value["$$typeof"] === "symbol" && value["$$typeof"]["description"]?.indexOf("react.") === 0;
 /* harmony default export */ const utils_isReactEle = (isReactEle);
 
 ;// CONCATENATED MODULE: ../huxy/utils/isVueEle.js
@@ -212,8 +210,8 @@ const mergeOwnProp = (base, extend) => {
 
 
 
-const createStore = () => {
-  const { on, emit, off } = utils_emitter();
+const createStore = (bus = utils_emitter()) => {
+  const { on, emit, off } = bus;
   const store = {};
   const getState = (name) => utils_clone(store[name]);
   const setState = (state, init = false) => {
@@ -257,8 +255,6 @@ var createContainer = __webpack_require__(559);
 const store = utils_createStore();
 const useStore = (0,createContainer/* default */.A)(store);
 /* harmony default export */ const use_useStore = (useStore);
-
-})();
 
 var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

@@ -41,7 +41,7 @@ const useEvent = (handler) => {
   (0,external_react_namespaceObject.useLayoutEffect)(() => {
     handlerRef.current = handler;
   });
-  return (0,external_react_namespaceObject.useCallback)(handlerRef.current, []);
+  return (0,external_react_namespaceObject.useCallback)((...args) => handlerRef.current?.(...args), []);
 };
 /* harmony default export */ const use_useEvent = (useEvent);
 

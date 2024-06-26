@@ -58,8 +58,6 @@ module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.u
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -76,8 +74,6 @@ const useRaf = (initState = {}) => {
   return [state, setRaf];
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRaf);
-
-})();
 
 var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };
