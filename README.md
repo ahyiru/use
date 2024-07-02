@@ -29,7 +29,6 @@ const Base64Image = ({src, ...rest}) => {
 };
 ```
 
-
 ### useCancelablePromise
 
 可取消异步函数
@@ -90,9 +89,12 @@ const [stop, setStop] = useState(false);
 
 const delay = 3000;
 
-useInterval(() => {
-  setCount(count + 1);
-}, stop ? null : delay);
+useInterval(
+  () => {
+    setCount(count + 1);
+  },
+  stop ? null : delay,
+);
 ```
 
 第一个参数为回调函数，第二个参数是延迟时间。当 delay 值为 null 或 false 时，会停止回调函数的执行。
@@ -130,7 +132,7 @@ const state = useScroll(element);
 ```javascript
 const [filterTree, setFilterTree] = useSearch(null, str2Dom);
 
-setFilterTree(data, keyword, fields = 'name', exact = false, idKey = 'id', childKey = 'children');
+setFilterTree(data, keyword, (fields = 'name'), (exact = false), (idKey = 'id'), (childKey = 'children'));
 ```
 
 - data：列表数据

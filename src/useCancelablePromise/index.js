@@ -131,14 +131,13 @@ const useCancelablePromise = () => {
     },
     []
   );
-  const cancelablePromise = (0,external_react_.useCallback)((fn, delay = true) => {
+  return (0,external_react_.useCallback)((fn, delay = true) => {
     const wrapPromise = utils_cancelablePromise(fn, delay);
     if (promises.current.indexOf(wrapPromise) === -1) {
       promises.current.push(wrapPromise);
     }
     return wrapPromise.promiseFn;
   }, []);
-  return { cancelablePromise };
 };
 /* harmony default export */ const use_useCancelablePromise = (useCancelablePromise);
 

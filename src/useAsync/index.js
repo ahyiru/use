@@ -77,14 +77,13 @@ const useCancelablePromise = () => {
     },
     []
   );
-  const cancelablePromise = (0,external_react_.useCallback)((fn, delay = true) => {
+  return (0,external_react_.useCallback)((fn, delay = true) => {
     const wrapPromise = utils_cancelablePromise(fn, delay);
     if (promises.current.indexOf(wrapPromise) === -1) {
       promises.current.push(wrapPromise);
     }
     return wrapPromise.promiseFn;
   }, []);
-  return { cancelablePromise };
 };
 /* harmony default export */ const use_useCancelablePromise = (useCancelablePromise);
 
@@ -152,11 +151,11 @@ var __webpack_exports__ = {};
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
-/* harmony import */ var _useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(175);
+/* harmony import */ var _huxy_use_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(175);
 
 
 const useAsync = (initState = {}) => {
-  const { cancelablePromise } = (0,_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)();
+  const cancelablePromise = (0,_huxy_use_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)();
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
   const resultRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
   const pendingRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
