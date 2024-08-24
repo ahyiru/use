@@ -41,7 +41,7 @@ const usePrevious = (value) => {
   (0,external_react_namespaceObject.useEffect)(() => {
     ref.current = value;
   }, [value]);
-  return ref?.current;
+  return ref;
 };
 /* harmony default export */ const use_usePrevious = (usePrevious);
 

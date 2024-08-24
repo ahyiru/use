@@ -161,7 +161,10 @@ const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj ?? {}, p
 
 ;// CONCATENATED MODULE: ../huxy/utils/isRef.js
 
-const isRef = (ref) => utils_hasProp(ref, "current");
+const isRef = (ref) => {
+  const refObj = typeof ref === "function" ? ref() : ref;
+  return utils_hasProp(refObj, "current");
+};
 /* harmony default export */ const utils_isRef = (isRef);
 
 ;// CONCATENATED MODULE: ../huxy/utils/findChildEle.js
@@ -258,15 +261,15 @@ var useRaf = __webpack_require__(630);
 
 
 const useEleResize = (ref = null, delay = 60) => {
-  const ele = typeof ref === "function" ? ref() : ref;
-  const element = utils_isRef(ele) ? ele.current : ele;
-  const { bind, destroy } = utils_resize(element, delay);
-  const [state, setState] = (0,useRaf/* default */.A)(utils_getViewportSize(element));
+  const [state, setState] = (0,useRaf/* default */.A)({});
   (0,external_react_.useEffect)(() => {
+    const ele = typeof ref === "function" ? ref() : ref;
+    const element = utils_isRef(ele) ? ele.current : ele;
+    const { bind, destroy } = utils_resize(element, delay);
     const handler = () => element && setState(utils_getViewportSize(element));
     bind(handler);
     return () => destroy();
-  }, [element]);
+  }, []);
   return state;
 };
 /* harmony default export */ const use_useEleResize = (useEleResize);
