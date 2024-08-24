@@ -49,7 +49,8 @@ const isRef = (ref) => utils_hasProp(ref, "current");
 const useClickAway = (elRef, handleEvent, events = "click") => {
   (0,external_react_namespaceObject.useEffect)(() => {
     const handler = (event) => {
-      const el = utils_isRef(elRef) ? elRef.current : elRef;
+      const ele = typeof elRef === "function" ? elRef() : elRef;
+      const el = utils_isRef(ele) ? ele.current : ele;
       if (el?.contains && !el.contains(event.target)) {
         handleEvent(event);
       }
@@ -63,7 +64,7 @@ const useClickAway = (elRef, handleEvent, events = "click") => {
         document.removeEventListener(evt, handler, false);
       });
     };
-  }, [elRef, handleEvent, events]);
+  }, [elRef]);
 };
 /* harmony default export */ const use_useClickAway = (useClickAway);
 

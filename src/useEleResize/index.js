@@ -8,9 +8,11 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
+/* harmony import */ var _huxy_use_useRefFun__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(857);
+
 
 const useRaf = (initState = {}) => {
-  const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  const frame = (0,_huxy_use_useRefFun__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0)();
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
   const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value) => {
     cancelAnimationFrame(frame.current);
@@ -20,6 +22,23 @@ const useRaf = (initState = {}) => {
   return [state, setRaf];
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRaf);
+
+
+/***/ }),
+
+/***/ 857:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
+
+const useRefFun = (initRef = null) => {
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(initRef);
+  return () => ref;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRefFun);
 
 
 /***/ }),
@@ -239,7 +258,8 @@ var useRaf = __webpack_require__(630);
 
 
 const useEleResize = (ref = null, delay = 60) => {
-  const element = utils_isRef(ref) ? ref.current : ref;
+  const ele = typeof ref === "function" ? ref() : ref;
+  const element = utils_isRef(ele) ? ele.current : ele;
   const { bind, destroy } = utils_resize(element, delay);
   const [state, setState] = (0,useRaf/* default */.A)(utils_getViewportSize(element));
   (0,external_react_.useEffect)(() => {

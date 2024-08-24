@@ -200,3 +200,11 @@ const {width} = useWinResize();
 // delay：节流时间
 const state = useEleResize(ref, (delay = 250));
 ```
+
+### useRefFun
+
+获取/设置 render 过程中的 ref。
+
+```javascript
+const data = useRefFun(0)();
+```

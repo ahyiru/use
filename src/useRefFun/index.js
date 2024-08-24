@@ -1,23 +1,6 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 857:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
-
-const useRefFun = (initRef = null) => {
-  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(initRef);
-  return () => ref;
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRefFun);
-
-
-/***/ }),
-
 /***/ 649:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -78,17 +61,13 @@ var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _huxy_use_useRefFun__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(857);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
 
-const useFirstMounted = () => {
-  const isFirst = (0,_huxy_use_useRefFun__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(true)();
-  if (isFirst.current) {
-    isFirst.current = false;
-    return true;
-  }
-  return false;
+const useRefFun = (initRef = null) => {
+  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(initRef);
+  return () => ref;
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFirstMounted);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useRefFun);
 
 var __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };
