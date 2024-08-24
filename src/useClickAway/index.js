@@ -67,7 +67,7 @@ const useClickAway = (elRef, handleEvent, events = "click") => {
         document.removeEventListener(evt, handler, false);
       });
     };
-  }, []);
+  }, [elRef]);
 };
 /* harmony default export */ const use_useClickAway = (useClickAway);
 
