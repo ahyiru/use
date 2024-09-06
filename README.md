@@ -201,10 +201,10 @@ const {width} = useWinResize();
 const state = useEleResize(ref, (delay = 250));
 ```
 
-### useRefFun
+### useCustomRef
 
 获取/设置 render 过程中的 ref。
 
 ```javascript
-const data = useRefFun(0)();
+const data = useCustomRef(0)();
 ```
