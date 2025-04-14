@@ -10,13 +10,13 @@ __webpack_require__.d(__webpack_exports__, {
   A: () => (/* binding */ use_createContainer)
 });
 
-;// CONCATENATED MODULE: external "react"
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
-;// CONCATENATED MODULE: ../huxy/use/createContainer/index.jsx
+;// ../huxy/use/createContainer/index.jsx
 
 const createContainer = (store) => (name, initState) => {
   const [state, setState] = (0,external_react_namespaceObject.useState)(() => {
@@ -89,38 +89,33 @@ const createContainer = (store) => (name, initState) => {
 /************************************************************************/
 var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useStore)
-});
-
-;// CONCATENATED MODULE: ../huxy/utils/getType.js
+;// ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
 
-;// CONCATENATED MODULE: ../huxy/utils/isObject.js
+;// ../huxy/utils/isObject.js
 
 const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ const utils_isObject = (isObject);
 
-;// CONCATENATED MODULE: ../huxy/utils/isArray.js
+;// ../huxy/utils/isArray.js
 
 const isArray = (value) => utils_getType(value) === "array";
 /* harmony default export */ const utils_isArray = (isArray);
 
-;// CONCATENATED MODULE: ../huxy/utils/isReactEle.js
+;// ../huxy/utils/isReactEle.js
 const isReactEle = (value) => value?.["$$typeof"] && typeof value["$$typeof"] === "symbol" && value["$$typeof"]["description"]?.indexOf("react.") === 0;
 /* harmony default export */ const utils_isReactEle = (isReactEle);
 
-;// CONCATENATED MODULE: ../huxy/utils/isVueEle.js
+;// ../huxy/utils/isVueEle.js
 const isVueEle = (value) => value?.__v_isVNode;
 /* harmony default export */ const utils_isVueEle = (isVueEle);
 
-;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
+;// ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj ?? {}, prop);
 /* harmony default export */ const utils_hasProp = (hasProp);
 
-;// CONCATENATED MODULE: ../huxy/utils/clone.js
+;// ../huxy/utils/clone.js
 
 
 
@@ -143,7 +138,7 @@ const clone = (obj) => {
 };
 /* harmony default export */ const utils_clone = (clone);
 
-;// CONCATENATED MODULE: ../huxy/utils/emitter.js
+;// ../huxy/utils/emitter.js
 const emitter = () => {
   const hub = {};
   const on = (name, cb) => {
@@ -177,7 +172,7 @@ const emitter = () => {
 };
 /* harmony default export */ const utils_emitter = (emitter);
 
-;// CONCATENATED MODULE: ../huxy/utils/mergeOwnProp.js
+;// ../huxy/utils/mergeOwnProp.js
 
 
 const getOwnProp = (obj) => {
@@ -205,7 +200,7 @@ const mergeOwnProp = (base, extend) => {
 };
 /* harmony default export */ const utils_mergeOwnProp = (mergeOwnProp);
 
-;// CONCATENATED MODULE: ../huxy/utils/createStore.js
+;// ../huxy/utils/createStore.js
 
 
 
@@ -249,12 +244,11 @@ const createStore = (bus = utils_emitter()) => {
 
 // EXTERNAL MODULE: ../huxy/use/createContainer/index.jsx + 1 modules
 var createContainer = __webpack_require__(559);
-;// CONCATENATED MODULE: ../huxy/use/useStore/index.jsx
+;// ../huxy/use/useStore/index.jsx
 
 
 const store = utils_createStore();
 const useStore = (0,createContainer/* default */.A)(store);
 /* harmony default export */ const use_useStore = (useStore);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useStore as default };

@@ -21,24 +21,18 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useBase64)
-});
-
-;// CONCATENATED MODULE: external "react"
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
-;// CONCATENATED MODULE: ../huxy/utils/isUrl.js
+;// ../huxy/utils/isUrl.js
 const isUrl = (url) => /^https?:\/\/[^\s/?.#]+\.[^\s]+/.test(url);
 /* harmony default export */ const utils_isUrl = (isUrl);
 
-;// CONCATENATED MODULE: ../huxy/utils/loadBase64.js
+;// ../huxy/utils/loadBase64.js
 const loadBase64 = (file) => new Promise((resolve, reject) => {
   const reader = new FileReader();
   reader.readAsDataURL(file);
@@ -47,7 +41,7 @@ const loadBase64 = (file) => new Promise((resolve, reject) => {
 });
 /* harmony default export */ const utils_loadBase64 = (loadBase64);
 
-;// CONCATENATED MODULE: ../huxy/utils/loadBase64ByUrl.js
+;// ../huxy/utils/loadBase64ByUrl.js
 
 
 const loadBase64ByUrl = async (url) => {
@@ -61,7 +55,7 @@ const loadBase64ByUrl = async (url) => {
 };
 /* harmony default export */ const utils_loadBase64ByUrl = (loadBase64ByUrl);
 
-;// CONCATENATED MODULE: ../huxy/use/useBase64/index.jsx
+;// ../huxy/use/useBase64/index.jsx
 
 
 const useBase64 = (url) => {
@@ -77,5 +71,4 @@ const useBase64 = (url) => {
 };
 /* harmony default export */ const use_useBase64 = (useBase64);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useBase64 as default };

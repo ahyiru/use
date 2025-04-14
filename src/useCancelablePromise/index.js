@@ -66,28 +66,28 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
-;// CONCATENATED MODULE: ../huxy/utils/getType.js
+;// ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
 
-;// CONCATENATED MODULE: ../huxy/utils/isObject.js
+;// ../huxy/utils/isObject.js
 
 const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ const utils_isObject = (isObject);
 
-;// CONCATENATED MODULE: ../huxy/utils/isFunction.js
+;// ../huxy/utils/isFunction.js
 
 const isFunction = (value) => utils_getType(value) === "function";
 /* harmony default export */ const utils_isFunction = (isFunction);
 
-;// CONCATENATED MODULE: ../huxy/utils/isAsync.js
+;// ../huxy/utils/isAsync.js
 
 
 
 const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(value) && utils_isFunction(value.then);
 /* harmony default export */ const utils_isAsync = (isAsync);
 
-;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
+;// ../huxy/utils/cancelablePromise.js
 
 const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
@@ -119,7 +119,7 @@ const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6
 };
 /* harmony default export */ const utils_cancelablePromise = (cancelablePromise);
 
-;// CONCATENATED MODULE: ../huxy/use/useCancelablePromise/index.jsx
+;// ../huxy/use/useCancelablePromise/index.jsx
 
 
 const useCancelablePromise = () => {
@@ -141,5 +141,5 @@ const useCancelablePromise = () => {
 };
 /* harmony default export */ const use_useCancelablePromise = (useCancelablePromise);
 
-var __webpack_exports__default = __webpack_exports__.A;
+var __webpack_exports__default = __webpack_exports__.A
 export { __webpack_exports__default as default };

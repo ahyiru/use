@@ -12,28 +12,28 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
-;// CONCATENATED MODULE: ../huxy/utils/getType.js
+;// ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
 
-;// CONCATENATED MODULE: ../huxy/utils/isObject.js
+;// ../huxy/utils/isObject.js
 
 const isObject = (value) => utils_getType(value) === "object";
 /* harmony default export */ const utils_isObject = (isObject);
 
-;// CONCATENATED MODULE: ../huxy/utils/isFunction.js
+;// ../huxy/utils/isFunction.js
 
 const isFunction = (value) => utils_getType(value) === "function";
 /* harmony default export */ const utils_isFunction = (isFunction);
 
-;// CONCATENATED MODULE: ../huxy/utils/isAsync.js
+;// ../huxy/utils/isAsync.js
 
 
 
 const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(value) && utils_isFunction(value.then);
 /* harmony default export */ const utils_isAsync = (isAsync);
 
-;// CONCATENATED MODULE: ../huxy/utils/cancelablePromise.js
+;// ../huxy/utils/cancelablePromise.js
 
 const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
@@ -65,7 +65,7 @@ const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6
 };
 /* harmony default export */ const utils_cancelablePromise = (cancelablePromise);
 
-;// CONCATENATED MODULE: ../huxy/use/useCancelablePromise/index.jsx
+;// ../huxy/use/useCancelablePromise/index.jsx
 
 
 const useCancelablePromise = () => {
@@ -148,7 +148,7 @@ module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.u
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   A: () => (use_useAsync)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
 /* harmony import */ var _huxy_use_useCancelablePromise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(175);
@@ -210,7 +210,7 @@ const useAsync = (initState = {}) => {
   }, []);
   return [state, update, clearResult];
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useAsync);
+/* harmony default export */ const use_useAsync = (useAsync);
 
-var __webpack_exports__default = __webpack_exports__.A;
+var __webpack_exports__default = __webpack_exports__.A
 export { __webpack_exports__default as default };

@@ -59,7 +59,7 @@ module.exports = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.use
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   A: () => (use_useInterval)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
 
@@ -75,7 +75,7 @@ const useInterval = (callback, delay) => {
     }
   }, [delay]);
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useInterval);
+/* harmony default export */ const use_useInterval = (useInterval);
 
-var __webpack_exports__default = __webpack_exports__.A;
+var __webpack_exports__default = __webpack_exports__.A
 export { __webpack_exports__default as default };

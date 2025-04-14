@@ -1,23 +1,6 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 121:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
-
-const useCustomRef = (initRef = null) => {
-  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(initRef);
-  return () => ref;
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useCustomRef);
-
-
-/***/ }),
-
 /***/ 630:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -25,11 +8,9 @@ const useCustomRef = (initRef = null) => {
 /* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
-/* harmony import */ var _huxy_use_useCustomRef__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(121);
-
 
 const useRaf = (initState = {}) => {
-  const frame = (0,_huxy_use_useCustomRef__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .A)(0)();
+  const frame = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
   const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initState);
   const setRaf = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value) => {
     cancelAnimationFrame(frame.current);
@@ -101,27 +82,22 @@ module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.u
 /************************************************************************/
 var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useScroll)
-});
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
-;// CONCATENATED MODULE: ../huxy/utils/getType.js
+;// ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
 
-;// CONCATENATED MODULE: ../huxy/utils/isElement.js
+;// ../huxy/utils/isElement.js
 
 const isElement = (value) => utils_getType(value).indexOf("element") > -1;
 /* harmony default export */ const utils_isElement = (isElement);
 
-;// CONCATENATED MODULE: ../huxy/utils/isBrowser.js
+;// ../huxy/utils/isBrowser.js
 const isBrowser = () => ![typeof window, typeof document].includes("undefined");
 /* harmony default export */ const utils_isBrowser = (isBrowser);
 
-;// CONCATENATED MODULE: ../huxy/utils/getOffset.js
+;// ../huxy/utils/getOffset.js
 
 
 const getOffset = (element = null) => {
@@ -146,7 +122,7 @@ const getOffset = (element = null) => {
 
 // EXTERNAL MODULE: ../huxy/use/useRaf/index.jsx
 var useRaf = __webpack_require__(630);
-;// CONCATENATED MODULE: ../huxy/use/useScroll/index.jsx
+;// ../huxy/use/useScroll/index.jsx
 
 
 
@@ -163,5 +139,4 @@ const useScroll = (element = null) => {
 };
 /* harmony default export */ const use_useScroll = (useScroll);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useScroll as default };

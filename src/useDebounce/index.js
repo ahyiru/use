@@ -21,20 +21,14 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useDebounce)
-});
-
-;// CONCATENATED MODULE: external "react"
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const external_react_namespaceObject = x({ ["useMemo"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useMemo) });
-;// CONCATENATED MODULE: ../huxy/utils/debounce.js
+;// ../huxy/utils/debounce.js
 const debounce = (func = () => {
 }, delay = 60) => {
   let timer = null;
@@ -45,11 +39,10 @@ const debounce = (func = () => {
 };
 /* harmony default export */ const utils_debounce = (debounce);
 
-;// CONCATENATED MODULE: ../huxy/use/useDebounce/index.jsx
+;// ../huxy/use/useDebounce/index.jsx
 
 
 const useDebounce = (fn, delay = 60) => (0,external_react_namespaceObject.useMemo)(() => utils_debounce(fn, delay), [delay]);
 /* harmony default export */ const use_useDebounce = (useDebounce);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useDebounce as default };

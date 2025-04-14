@@ -21,24 +21,18 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useClickAway)
-});
-
-;// CONCATENATED MODULE: external "react"
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect) });
-;// CONCATENATED MODULE: ../huxy/utils/hasProp.js
+;// ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj ?? {}, prop);
 /* harmony default export */ const utils_hasProp = (hasProp);
 
-;// CONCATENATED MODULE: ../huxy/utils/isRef.js
+;// ../huxy/utils/isRef.js
 
 const isRef = (ref) => {
   const refObj = typeof ref === "function" ? ref() : ref;
@@ -46,7 +40,7 @@ const isRef = (ref) => {
 };
 /* harmony default export */ const utils_isRef = (isRef);
 
-;// CONCATENATED MODULE: ../huxy/use/useClickAway/index.jsx
+;// ../huxy/use/useClickAway/index.jsx
 
 
 const useClickAway = (elRef, handleEvent, events = "click") => {
@@ -71,5 +65,4 @@ const useClickAway = (elRef, handleEvent, events = "click") => {
 };
 /* harmony default export */ const use_useClickAway = (useClickAway);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useClickAway as default };

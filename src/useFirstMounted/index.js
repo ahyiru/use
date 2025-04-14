@@ -1,31 +1,29 @@
 import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ var __webpack_modules__ = ({
 
-/***/ 121:
+/***/ 13:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(649);
 
-const useCustomRef = (initRef = null) => {
-  const ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(initRef);
-  return () => ref;
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useCustomRef);
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (/* binding */ use_useCustomRef)
+});
 
-
-/***/ }),
-
-/***/ 649:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
-module.exports = x({ ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
+const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
+;// ../huxy/use/useCustomRef/index.jsx
+
+const useCustomRef = (initRef = null) => {
+  const ref = (0,external_react_namespaceObject.useRef)((val) => ({ current: val }));
+  return (0,external_react_namespaceObject.useCallback)((val = initRef) => ref.current(val), []);
+};
+/* harmony default export */ const use_useCustomRef = (useCustomRef);
+
 
 /***/ })
 
@@ -76,9 +74,9 @@ module.exports = x({ ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   A: () => (use_useFirstMounted)
 /* harmony export */ });
-/* harmony import */ var _huxy_use_useCustomRef__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(121);
+/* harmony import */ var _huxy_use_useCustomRef__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
 
 const useFirstMounted = () => {
   const isFirst = (0,_huxy_use_useCustomRef__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(true)();
@@ -88,7 +86,7 @@ const useFirstMounted = () => {
   }
   return false;
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useFirstMounted);
+/* harmony default export */ const use_useFirstMounted = (useFirstMounted);
 
-var __webpack_exports__default = __webpack_exports__.A;
+var __webpack_exports__default = __webpack_exports__.A
 export { __webpack_exports__default as default };

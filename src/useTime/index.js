@@ -84,14 +84,9 @@ module.exports = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.use
 /************************************************************************/
 var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useTime)
-});
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
-;// CONCATENATED MODULE: ../huxy/utils/getTime.js
+;// ../huxy/utils/getTime.js
 const addZero = (n) => n < 10 ? "0" + n : n;
 const getTime = (day = /* @__PURE__ */ new Date()) => {
   const date = new Date(day);
@@ -106,7 +101,7 @@ const getTime = (day = /* @__PURE__ */ new Date()) => {
 };
 /* harmony default export */ const utils_getTime = (getTime);
 
-;// CONCATENATED MODULE: ../huxy/utils/formatTime.js
+;// ../huxy/utils/formatTime.js
 
 const defWeek = ["\u661F\u671F\u65E5", "\u661F\u671F\u4E00", "\u661F\u671F\u4E8C", "\u661F\u671F\u4E09", "\u661F\u671F\u56DB", "\u661F\u671F\u4E94", "\u661F\u671F\u516D"];
 const formatDelimiter = (str, target, s = "-") => str.replace(new RegExp(s, "g"), target);
@@ -120,7 +115,7 @@ const formatTime = (date = /* @__PURE__ */ new Date(), delimiter = ["-", "-", " 
 
 // EXTERNAL MODULE: ../huxy/use/useInterval/index.jsx
 var useInterval = __webpack_require__(360);
-;// CONCATENATED MODULE: ../huxy/use/useTime/index.jsx
+;// ../huxy/use/useTime/index.jsx
 
 
 
@@ -134,5 +129,4 @@ const useTime = () => {
 };
 /* harmony default export */ const use_useTime = (useTime);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useTime as default };

@@ -21,20 +21,14 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_usePrevious)
-});
-
-;// CONCATENATED MODULE: external "react"
+;// external "react"
 var x = (y) => {
 	var x = {}; __webpack_require__.d(x, y); return x
 } 
 var y = (x) => (() => (x))
 const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
-;// CONCATENATED MODULE: ../huxy/use/usePrevious/index.jsx
+;// ../huxy/use/usePrevious/index.jsx
 
 const usePrevious = (value) => {
   const ref = (0,external_react_namespaceObject.useRef)();
@@ -45,5 +39,4 @@ const usePrevious = (value) => {
 };
 /* harmony default export */ const use_usePrevious = (usePrevious);
 
-var __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_usePrevious as default };
