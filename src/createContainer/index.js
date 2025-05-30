@@ -57,5 +57,5 @@ const createContainer = (store) => (name, initState) => {
 };
 /* harmony default export */ const use_createContainer = (createContainer);
 
-var __webpack_exports__default = __webpack_exports__.A
+const __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

@@ -212,5 +212,5 @@ const useAsync = (initState = {}) => {
 };
 /* harmony default export */ const use_useAsync = (useAsync);
 
-var __webpack_exports__default = __webpack_exports__.A
+const __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

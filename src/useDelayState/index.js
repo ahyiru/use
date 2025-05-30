@@ -103,5 +103,5 @@ const useDelayState = (state, delay = 450) => {
 };
 /* harmony default export */ const use_useDelayState = (useDelayState);
 
-var __webpack_exports__default = __webpack_exports__.A
+const __webpack_exports__default = __webpack_exports__.A;
 export { __webpack_exports__default as default };

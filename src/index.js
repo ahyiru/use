@@ -19,4 +19,4 @@ export {default as useTime} from './useTime';
 export {default as useUpdate} from './useUpdate';
 export {default as useUpdateEffect} from './useUpdateEffect';
 export {default as useWinResize} from './useWinResize';
-export {default as useCustomRef} from './useCustomRef';
+// export {default as useCustomRef} from './useCustomRef';
