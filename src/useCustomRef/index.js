@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useRef as __WEBPACK_EXTERNAL_MODULE_react_useRef__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,17 +21,14 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
+
 ;// ../huxy/use/useCustomRef/index.jsx
 
 const useCustomRef = (initRef = null) => {
-  const ref = (0,external_react_namespaceObject.useRef)(initRef);
+  const ref = __WEBPACK_EXTERNAL_MODULE_react_useRef__(initRef);
   return () => ref;
 };
 /* harmony default export */ const use_useCustomRef = (useCustomRef);

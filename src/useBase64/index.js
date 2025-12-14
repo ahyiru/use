@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useEffect as __WEBPACK_EXTERNAL_MODULE_react_useEffect__, useState as __WEBPACK_EXTERNAL_MODULE_react_useState__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,13 +21,10 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+
 ;// ../huxy/utils/isUrl.js
 const isUrl = (url) => /^https?:\/\/[^\s/?.#]+\.[^\s]+/.test(url);
 /* harmony default export */ const utils_isUrl = (isUrl);
@@ -59,8 +56,8 @@ const loadBase64ByUrl = async (url) => {
 
 
 const useBase64 = (url) => {
-  const [dataUrl, setDataUrl] = (0,external_react_namespaceObject.useState)(url);
-  (0,external_react_namespaceObject.useEffect)(() => {
+  const [dataUrl, setDataUrl] = __WEBPACK_EXTERNAL_MODULE_react_useState__(url);
+  __WEBPACK_EXTERNAL_MODULE_react_useEffect__(() => {
     const getBase64 = async (url2) => {
       const base64 = await utils_loadBase64ByUrl(url2);
       setDataUrl(base64);

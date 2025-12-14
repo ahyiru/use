@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useCallback as __WEBPACK_EXTERNAL_MODULE_react_useCallback__, useState as __WEBPACK_EXTERNAL_MODULE_react_useState__ } from "react";
 /******/ var __webpack_modules__ = ({
 
 /***/ 85:
@@ -104,11 +104,7 @@ __webpack_unused_export__ = jsxProd;
 var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+
 ;// ../huxy/utils/getType.js
 const getType = (value) => Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 /* harmony default export */ const utils_getType = (getType);
@@ -255,8 +251,8 @@ const str2React = (str, props) => /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { d
 
 
 const useSearch = (initState = null, str2Dom = components_str2React) => {
-  const [state, setState] = (0,external_react_namespaceObject.useState)(initState);
-  const setList = (0,external_react_namespaceObject.useCallback)((...args) => {
+  const [state, setState] = __WEBPACK_EXTERNAL_MODULE_react_useState__(initState);
+  const setList = __WEBPACK_EXTERNAL_MODULE_react_useCallback__((...args) => {
     const [data, keyword, fields, exact, idKey, childKey] = args;
     if (!keyword) {
       setState(null);

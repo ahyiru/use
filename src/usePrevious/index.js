@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useEffect as __WEBPACK_EXTERNAL_MODULE_react_useEffect__, useRef as __WEBPACK_EXTERNAL_MODULE_react_useRef__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,18 +21,15 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
+
 ;// ../huxy/use/usePrevious/index.jsx
 
 const usePrevious = (value) => {
-  const ref = (0,external_react_namespaceObject.useRef)();
-  (0,external_react_namespaceObject.useEffect)(() => {
+  const ref = __WEBPACK_EXTERNAL_MODULE_react_useRef__();
+  __WEBPACK_EXTERNAL_MODULE_react_useEffect__(() => {
     ref.current = value;
   }, [value]);
   return ref;

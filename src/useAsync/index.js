@@ -35,7 +35,7 @@ const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(
 
 ;// ../huxy/utils/cancelablePromise.js
 
-const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
+const cancelablePromise = (promise, delay = 12e4, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
     return {};
   }

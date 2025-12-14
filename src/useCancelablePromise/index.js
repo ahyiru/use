@@ -59,11 +59,6 @@ module.exports = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.u
 /************************************************************************/
 var __webpack_exports__ = {};
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  A: () => (/* binding */ use_useCancelablePromise)
-});
-
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(649);
 ;// ../huxy/utils/getType.js
@@ -89,7 +84,7 @@ const isAsync = (value) => utils_getType(value) === "promise" || utils_isObject(
 
 ;// ../huxy/utils/cancelablePromise.js
 
-const cancelablePromise = (promise, delay = 3e5, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
+const cancelablePromise = (promise, delay = 12e4, msg = "\u8BF7\u6C42\u8D85\u65F6\uFF01") => {
   if (!utils_isAsync(promise)) {
     return {};
   }
@@ -141,5 +136,4 @@ const useCancelablePromise = () => {
 };
 /* harmony default export */ const use_useCancelablePromise = (useCancelablePromise);
 
-const __webpack_exports__default = __webpack_exports__.A;
-export { __webpack_exports__default as default };
+export { use_useCancelablePromise as default };

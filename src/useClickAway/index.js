@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useEffect as __WEBPACK_EXTERNAL_MODULE_react_useEffect__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,13 +21,10 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useEffect) });
+
 ;// ../huxy/utils/hasProp.js
 const hasProp = (obj, prop) => Object.prototype.hasOwnProperty.call(obj ?? {}, prop);
 /* harmony default export */ const utils_hasProp = (hasProp);
@@ -44,7 +41,7 @@ const isRef = (ref) => {
 
 
 const useClickAway = (elRef, handleEvent, events = "click") => {
-  (0,external_react_namespaceObject.useEffect)(() => {
+  __WEBPACK_EXTERNAL_MODULE_react_useEffect__(() => {
     const handler = (event) => {
       const ele = typeof elRef === "function" ? elRef() : elRef;
       const el = utils_isRef(ele) ? ele.current : ele;

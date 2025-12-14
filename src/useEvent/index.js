@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useCallback as __WEBPACK_EXTERNAL_MODULE_react_useCallback__, useLayoutEffect as __WEBPACK_EXTERNAL_MODULE_react_useLayoutEffect__, useRef as __WEBPACK_EXTERNAL_MODULE_react_useRef__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,21 +21,18 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useLayoutEffect"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useLayoutEffect), ["useRef"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useRef) });
+
 ;// ../huxy/use/useEvent/index.jsx
 
 const useEvent = (handler) => {
-  const handlerRef = (0,external_react_namespaceObject.useRef)(null);
-  (0,external_react_namespaceObject.useLayoutEffect)(() => {
+  const handlerRef = __WEBPACK_EXTERNAL_MODULE_react_useRef__(null);
+  __WEBPACK_EXTERNAL_MODULE_react_useLayoutEffect__(() => {
     handlerRef.current = handler;
   });
-  return (0,external_react_namespaceObject.useCallback)((...args) => handlerRef.current?.(...args), []);
+  return __WEBPACK_EXTERNAL_MODULE_react_useCallback__((...args) => handlerRef.current?.(...args), []);
 };
 /* harmony default export */ const use_useEvent = (useEvent);
 

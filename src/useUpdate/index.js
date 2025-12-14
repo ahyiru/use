@@ -1,4 +1,4 @@
-import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
+import { useCallback as __WEBPACK_EXTERNAL_MODULE_react_useCallback__, useState as __WEBPACK_EXTERNAL_MODULE_react_useState__ } from "react";
 /******/ // The require scope
 /******/ var __webpack_require__ = {};
 /******/ 
@@ -21,19 +21,16 @@ import * as __WEBPACK_EXTERNAL_MODULE_react__ from "react";
 /******/ })();
 /******/ 
 /************************************************************************/
+var __webpack_exports__ = {};
 
 ;// external "react"
-var x = (y) => {
-	var x = {}; __webpack_require__.d(x, y); return x
-} 
-var y = (x) => (() => (x))
-const external_react_namespaceObject = x({ ["useCallback"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useCallback), ["useState"]: () => (__WEBPACK_EXTERNAL_MODULE_react__.useState) });
+
 ;// ../huxy/use/useUpdate/index.jsx
 
 const incrementParameter = (num) => ++num;
 const useUpdate = () => {
-  const [, setState] = (0,external_react_namespaceObject.useState)(0);
-  return (0,external_react_namespaceObject.useCallback)(() => setState(incrementParameter), []);
+  const [, setState] = __WEBPACK_EXTERNAL_MODULE_react_useState__(0);
+  return __WEBPACK_EXTERNAL_MODULE_react_useCallback__(() => setState(incrementParameter), []);
 };
 /* harmony default export */ const use_useUpdate = (useUpdate);
 
