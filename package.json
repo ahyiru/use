@@ -1,6 +1,6 @@
 {
   "name": "@huxy/use",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "title": "useHooks",
   "feature": "0.0.1",
   "hooks": "0.0.1",
@@ -13,7 +13,7 @@
     "use"
   ],
   "sideEffects": false,
-  "main": "./lib/index.js",
+  "module": "./lib/index.js",
   "exports": {
     ".": "./lib/index.js",
     "./src/*": "./src/*/index.js",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
-    "react": ">=17.0.0"
+    "react": ">=18.0.0"
   },
-  "author": "yiru"
+  "author": "Yiru <ah.yiru@gmail.com>"
 }
