@@ -1,14 +1,1 @@
-import { useEffect as __WEBPACK_EXTERNAL_MODULE_react_useEffect__, useState as __WEBPACK_EXTERNAL_MODULE_react_useState__ } from "react";
-
-;// external "react"
-
-;// ../huxy/use/useStateFromProps/index.jsx
-
-const useStateFromProps = (props) => {
-  const [state, setState] = __WEBPACK_EXTERNAL_MODULE_react_useState__(props);
-  __WEBPACK_EXTERNAL_MODULE_react_useEffect__(() => setState(props), [props]);
-  return [state, setState];
-};
-/* harmony default export */ const use_useStateFromProps = (useStateFromProps);
-
-export { use_useStateFromProps as default };
+import{useEffect as a,useState as o}from"react";var r=t=>{let[s,e]=o(t);return a(()=>e(t),[t]),[s,e]},f=r;export{f as default};
